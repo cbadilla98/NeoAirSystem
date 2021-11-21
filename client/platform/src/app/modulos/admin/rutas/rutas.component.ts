@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RutasService } from '../../../services/admin-rutas/rutas.service';
 
 @Component({
   selector: 'app-rutas',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutasComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private rutasService: RutasService) { }
+  rutas =  <any>[];
   ngOnInit(): void {
+    this.rutasService.get().subscribe((rutas)=>{this.rutas  = rutas});
+    console.log("paso por aca");
+    console.log(this.rutas);
   }
 
 }

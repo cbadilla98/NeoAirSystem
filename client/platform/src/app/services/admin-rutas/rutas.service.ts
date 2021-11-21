@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-const BLOG_API_ENDPOINT = `${environment.apiUrl}/posts`;
+const RUTAS_API_ENDPOINT = `${environment.apiUrl}/rutas`;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -12,22 +12,25 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
-  constructor(private http: HttpClient) { }
+export class RutasService {
+  constructor(private http: HttpClient) {
+      console.log('servicioRutas')
+   }
 
   get(): Observable<any> {
-    return this.http.get(BLOG_API_ENDPOINT, httpOptions);
+    return this.http.get(RUTAS_API_ENDPOINT, httpOptions);
   }
 
   getById(id: string): Observable<any> {
-    return this.http.get(`${BLOG_API_ENDPOINT}/${id}`);
+    return this.http.get(`${RUTAS_API_ENDPOINT}/${id}`);
   }
-  addComment(postId: string, comment: Comment): Observable<any> {
-    return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
-  }
-  deleteComment(postId: string, commentId: any): Observable<any> {
-    return this.http.delete(
-      `${BLOG_API_ENDPOINT}/${postId}/comments/${commentId}`
-    );
-  }
+//   addComment(postId: string, comment: Comment): Observable<any> {
+//     return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
+//   }
+//   deleteComment(postId: string, commentId: any): Observable<any> {
+//     return this.http.delete(
+//       `${BLOG_API_ENDPOINT}/${postId}/comments/${commentId}`
+//     );
+//   }
+
 }
