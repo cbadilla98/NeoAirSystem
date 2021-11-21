@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // import { AppComponent } from './app.component';
-import { RutasComponent } from './components/rutas/rutas.component';
 import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
 import { UserComponent } from './layouts/user/user.component'
 import { AdminComponent } from './modulos/admin/admin/admin.component';
 import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
+import { RutasComponent } from './modulos/admin/rutas/rutas.component';
 import { HomeComponent } from './modulos/user/home/home.component'
 const routes: Routes = [
   {
@@ -18,6 +18,9 @@ const routes: Routes = [
       },
       {
         path: 'horarios', component : HorariosComponent
+      },
+      {
+        path: 'rutas', component : RutasComponent
       },
     ],
   },
