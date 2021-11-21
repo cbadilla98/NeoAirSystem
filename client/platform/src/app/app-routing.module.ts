@@ -6,7 +6,7 @@ import { UserComponent } from './layouts/user/user.component'
 import { AdminComponent } from './modulos/admin/admin/admin.component';
 import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
 import { RutasComponent } from './modulos/admin/rutas/rutas.component';
-import { HomeComponent } from './modulos/user/home/home.component'
+import { HomeComponent } from './modulos/user/home/home.component';
 const routes: Routes = [
   {
     //admin

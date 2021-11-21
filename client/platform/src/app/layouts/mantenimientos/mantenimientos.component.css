@@ -1,0 +1,19 @@
+.navStyle{
+    background-color: #16697A;
+    padding: 2%;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+}
+.navStyle .logo{
+    color: #fff;
+    font-size: 30px;
+    border-bottom: 1px solid #FF8811
+}
+.navStyle .logo span{
+    color: #FF8811;
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #FFF;
+    font-size: larger;
+    padding: 0px 15px;
+}
