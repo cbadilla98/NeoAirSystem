@@ -1,13 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+// import { AppComponent } from './app.component';
 import { RutasComponent } from './components/rutas/rutas.component';
-const routes: Routes = [{
-  path: 'platform',
-  component: AppComponent
-}, {
-  path: 'rutas', component: RutasComponent
-}];
+import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
+import { UserComponent } from './layouts/user/user.component'
+import { AdminComponent } from './modulos/admin/admin/admin.component';
+import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
+import { HomeComponent } from './modulos/user/home/home.component'
+const routes: Routes = [
+  {
+    //admin
+    path: '', component: MantenimientosComponent,
+    children: [
+      { path: '', redirectTo: '/mantenimientos', pathMatch: 'full' },
+      {
+        path: 'admin', component : AdminComponent,
+      },
+      {
+        path: 'horarios', component : HorariosComponent
+      },
+    ],
+  },
+  //usuario
+  {
+    path: '', component: UserComponent,
+    children: [
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'inicio', component: HomeComponent},
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
