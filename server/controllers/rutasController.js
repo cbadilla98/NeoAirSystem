@@ -2,13 +2,13 @@ const RutasModel = require("../models/Rutas");
 
 
 module.exports.get = async (req, res, next) => {
-    const posts = await RutasModel.find().populate("Aviones").exec();
+    const posts = await RutasModel.find().populate("aviones").exec();
     res.json(posts);
 };
 
 module.exports.getById = async (req, res, next) => {
   const id = req.params.id;
-  const post = await RutasModel.findOne({ _id: id }).populate("Aviones").exec();
+  const post = await RutasModel.findOne({ _id: id }).populate("aviones").exec();
   res.json(post);
 };
 
