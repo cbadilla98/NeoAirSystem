@@ -4,8 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
 import { UserComponent } from './layouts/user/user.component'
 import { AdminComponent } from './modulos/admin/admin/admin.component';
+import { AvionesComponent } from './modulos/admin/aviones/aviones.component';
 import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
 import { RutasComponent } from './modulos/admin/rutas/rutas.component';
+import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 import { HomeComponent } from './modulos/user/home/home.component';
 const routes: Routes = [
   {
@@ -21,6 +23,12 @@ const routes: Routes = [
       },
       {
         path: 'rutas', component : RutasComponent
+      },
+      {
+        path: 'tipoAvion', component : TipoAvionComponent
+      },
+      {
+        path: 'aviones', component : AvionesComponent
       },
     ],
   },

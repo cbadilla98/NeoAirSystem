@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { RutasComponent } from './components/rutas/rutas.component';
+import { AdminComponent } from './modulos/admin/admin/admin.component';
 import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
 import { UserComponent } from './layouts/user/user.component';
 
@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    // RutasComponent,
+    AdminComponent,
     MantenimientosComponent,
     UserComponent
   ],
