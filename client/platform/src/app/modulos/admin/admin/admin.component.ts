@@ -24,5 +24,12 @@ export class AdminComponent implements OnInit {
     } 
     )
   }
+  delete(id: string): void {
+    if (confirm('¿Esta seguro que quiere borrar este post?')) {
+      this.usuariosService.deleteUsuario(id).subscribe((res: any) => {
+        this.usuarios = this.usuarios.filter((post: any) => post._id !== id);
+      });
+    }
+  }
 
 }

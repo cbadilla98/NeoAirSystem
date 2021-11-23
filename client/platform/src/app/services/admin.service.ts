@@ -25,9 +25,9 @@ export class AdminService {
   addUsuario(postId: string, comment: Comment): Observable<any> {
     return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
 }
-deleteUsuario(postId: string, commentId: any): Observable<any> {
+deleteUsuario(id: string): Observable<any> {
   return this.http.delete(
-    `${BLOG_API_ENDPOINT}/${postId}/comment/${commentId}`
+    `${BLOG_API_ENDPOINT}/${id}/`
   );
 }
 }
