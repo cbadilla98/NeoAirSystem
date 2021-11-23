@@ -2,7 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const AvionesSchema = new Schema(
   {
-    
+    descripcion: {
+      type: String,
+      unique: true,
+    },
     activo: {
         type: Boolean,
         default: "1",
