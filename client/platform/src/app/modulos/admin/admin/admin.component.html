@@ -1,1 +1,16 @@
 <p>admin works!</p>
+<div *ngFor="let usuario of usuarios">
+    <div class="post-preview">
+      <a  >
+        <h2 class="post-title">
+         {{usuario.nombre}}
+        </h2>
+        <h3 class="post-subtitle">
+         {{usuario.correo}}
+        </h3>
+      </a>
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
+    <!-- Post preview-->
+  </div>
