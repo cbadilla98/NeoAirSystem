@@ -11,8 +11,8 @@ export class RutasComponent implements OnInit {
   constructor(private rutasService: RutasService) { }
   rutas =  <any>[];
   ngOnInit(): void {
-    this.rutasService.get().subscribe((rutas)=>{this.rutas  = rutas});
-    console.log("paso por aca");
+    this.rutasService.get().subscribe((rutas)=>{this.rutas = rutas});
+    // console.log("paso por aca");
     console.log(this.rutas);
   }
 
