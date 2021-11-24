@@ -14,6 +14,7 @@ import { UserComponent } from './layouts/user/user.component';
 // import { PostComponent } from './components/blog/post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RutasComponent } from './modulos/admin/rutas/rutas.component';
+import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RutasComponent } from './modulos/admin/rutas/rutas.component';
     MantenimientosComponent,
     UserComponent,
     RutasComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    TipoAvionComponent
   ],
   imports: [
     BrowserModule,
