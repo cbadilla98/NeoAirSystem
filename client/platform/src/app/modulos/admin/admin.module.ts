@@ -8,6 +8,8 @@ import { RutasComponent } from './rutas/rutas.component';
 import { TipoAvionComponent } from './tipo-avion/tipo-avion.component';
 import { AvionesComponent } from './aviones/aviones.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -23,7 +25,8 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ]
 })
 export class AdminModule { }
