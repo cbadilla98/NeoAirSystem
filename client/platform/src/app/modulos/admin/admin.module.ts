@@ -6,7 +6,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { HorariosComponent } from './horarios/horarios.component';
 import { RutasComponent } from './rutas/rutas.component';
 import { TipoAvionComponent } from './tipo-avion/tipo-avion.component';
-import { AvionesComponent } from './aviones/aviones.component'; 
+import { AvionesComponent } from './aviones/aviones.component';
+import { UsuarioFormComponent } from './usuario-form/usuario-form.component'; 
 
 
 
@@ -16,7 +17,8 @@ import { AvionesComponent } from './aviones/aviones.component';
     HorariosComponent,
     RutasComponent,
     TipoAvionComponent,
-    AvionesComponent
+    AvionesComponent,
+    UsuarioFormComponent
   ],
   imports: [
     CommonModule,
