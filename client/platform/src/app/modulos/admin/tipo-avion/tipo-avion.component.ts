@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TipoAvionesService } from 'src/app/services/admin-tipoAviones/tipoAviones.service';
 
 @Component({
   selector: 'app-tipo-avion',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipoAvionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tipoAvionesService: TipoAvionesService) { 
+
+  }
+
+  tipoAviones = <any>[];
 
   ngOnInit(): void {
+    this.tipoAvionesService.get().subscribe((tipoAviones)=>{this.tipoAviones = tipoAviones});
   }
 
 }
