@@ -22,6 +22,7 @@ export class AdminService {
   getById(id: string): Observable<any> {
     return this.http.get(`${BLOG_API_ENDPOINT}/${id}`);
   }
+  
   addUsuario(postId: string, comment: Comment): Observable<any> {
     return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
 }
@@ -30,4 +31,12 @@ deleteUsuario(id: string): Observable<any> {
     `${BLOG_API_ENDPOINT}/${id}/`
   );
 }
+create(post: any): Observable<any> {
+  return this.http.post(BLOG_API_ENDPOINT, post);
+}
+
+edit(id: string, post: any): Observable<any> {
+  return this.http.put(`${BLOG_API_ENDPOINT}/${id}`, post);
+}
+
 }

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './modulos/admin/admin/admin.component';
+import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.component';
 import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
 import { UserComponent } from './layouts/user/user.component';
 
@@ -20,7 +21,8 @@ import { RutasComponent } from './modulos/admin/rutas/rutas.component';
     AdminComponent,
     MantenimientosComponent,
     UserComponent,
-    RutasComponent
+    RutasComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
 import { RutasComponent } from './modulos/admin/rutas/rutas.component';
 import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 import { HomeComponent } from './modulos/user/home/home.component';
+import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.component';
 const routes: Routes = [
   {
     //admin
@@ -29,6 +30,12 @@ const routes: Routes = [
       },
       {
         path: 'aviones', component : AvionesComponent
+      },
+      {
+        path: 'usuario', component : UsuarioFormComponent
+      },
+      {
+        path: 'usuario/:id', component : UsuarioFormComponent
       },
     ],
   },
