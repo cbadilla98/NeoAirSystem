@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AvionesService } from 'src/app/services/admin-aviones/aviones.service';
 import { RutasService } from '../../../services/admin-rutas/rutas.service';
-
 @Component({
   selector: 'app-rutas',
   templateUrl: './rutas.component.html',
@@ -17,6 +16,15 @@ export class RutasComponent implements OnInit {
     this.avionesService.get().subscribe((aviones)=>{this.aviones = aviones});
     // console.log("paso por aca");
     // console.log(this.rutas);
+
+    var x:any = document.getElementById("btnEditar");
+    x.addEventListener("click",function() {
+      console.log("hola")
+    });
+
+    // $("#btnEditar").on('click',function() {
+    //   console.log("hola query");
+    // })
   }
 
 }
