@@ -26,10 +26,14 @@ export class TipoAvionesService {
     //   addComment(postId: string, comment: Comment): Observable<any> {
     //     return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
     //   }
-    //   deleteComment(postId: string, commentId: any): Observable<any> {
-    //     return this.http.delete(
-    //       `${BLOG_API_ENDPOINT}/${postId}/comments/${commentId}`
-    //     );
-    //   }
+    deleteTipoAvion(id: string): Observable<any> {
+        return this.http.delete(
+          `${TIPOAVIONES_API_ENDPOINT}/${id}/`
+        );
+      }
+
+      addTipoAvion(marca: string, modelo: string, annio: Number, activo: true, cantPasajeros: Number, cantFilas:Number, cantAsientosPorFila: Number): Observable<any> {
+        return this.http.post(`${TIPOAVIONES_API_ENDPOINT}/tipoaviones`, "");
+      }
 
 }

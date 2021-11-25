@@ -9,6 +9,7 @@ import { TipoAvionComponent } from './tipo-avion/tipo-avion.component';
 import { AvionesComponent } from './aviones/aviones.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TipoAvionFormComponent } from './tipo-avion-form/tipo-avion-form.component';
 
 
 
@@ -20,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RutasComponent,
     TipoAvionComponent,
     AvionesComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    TipoAvionFormComponent
   ],
   imports: [
     CommonModule,

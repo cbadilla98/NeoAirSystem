@@ -1,0 +1,35 @@
+<body class="m-0 row justify-content-center">
+    
+
+    <div class="mt-5 col-10">
+<div class="mt-5">
+    <form [formGroup]="tipoAvionForm"  (ngSubmit)="submitForm()">
+        <div class="mb-3">
+            <label for="inputNombre" class="form-label">Marca</label>
+            <input formControlName="marca" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputModelo" class="form-label">Modelo</label>
+            <input formControlName="modelo" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputAnnio" class="form-label">Año</label>
+            <input formControlName="annio" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputCantPasajeros" class="form-label">Cantidad de Pasajeros</label>
+            <input formControlName="cantPasajeros" type="number" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputCantFilas" class="form-label">Cantidad de Filas</label>
+            <input formControlName="cantFilas" type="number" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="inputCantAsientosFila" class="form-label">Cantidad asientos por fila</label>
+            <input formControlName="cantAsientosFila" type="number" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+    </form>
+</div>
+</div>
+</body>

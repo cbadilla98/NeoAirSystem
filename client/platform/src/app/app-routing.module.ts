@@ -10,6 +10,7 @@ import { RutasComponent } from './modulos/admin/rutas/rutas.component';
 import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 import { HomeComponent } from './modulos/user/home/home.component';
 import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.component';
+import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 const routes: Routes = [
   {
     //admin
@@ -36,6 +37,9 @@ const routes: Routes = [
       },
       {
         path: 'usuario/:id', component : UsuarioFormComponent
+      },
+      {
+        path: 'tipoAvionesForm', component : TipoAvionFormComponent
       },
     ],
   },

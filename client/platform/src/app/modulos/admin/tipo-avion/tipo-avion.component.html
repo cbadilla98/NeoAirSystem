@@ -1,32 +1,52 @@
-<div class="text-center">
+<body class="m-0 row justify-content-center">
+    
 
-    <h4>Administrar Tipos de Aviones</h4>
+    <div class="text-center">
+        <h4>Administrar <b>Tipos de Aviones</b> </h4>
+    </div>
 
-    <table class="table table-striped table-hover mt-5">
-        <thead>
-            <tr>
-                <th scope="col">Marca</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Año</th>
-                <th scope="col">Activo</th>
-                <th scope="col">Cantidad de Pasajeros</th>
-                <th scope="col">Cantidad de Filas</th>
-                <th scope="col">Cantidad de Asientos X Fila</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let tipo of tipoAviones">
-                <td>{{tipo.marca}}</td>
-                <td>{{tipo.modelo}}</td>
-                <td>{{tipo.annio}}</td>
-                <td>{{tipo.activo}}</td>
-                <td>{{tipo.cantPasajeros}}</td>
-                <td>{{tipo.cantFilas}}</td>
-                <td>{{tipo.cantAsientosPorFila}}</td>
+    <div class="col-sm-6 d-flex justify-content-end">
+        <a href="/tipoAvionesForm" class="btn btn-success btn-small" data-toggle="modal">&nbsp;&nbsp; <span
+                class="d-inline-block">Nuevo</span></a>
 
-                                  
-            </tr>
+    </div>
 
-        </tbody>
-    </table>
-</div>
+    <div class="mt-2 col-12 col-md-10 ">
+        <table class="table table-striped table-hover mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Activo</th>
+                    <th scope="col">Cant Pasajeros</th>
+                    <th scope="col">Cant Filas</th>
+                    <th scope="col">Cant Asientos X Fila</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tipo of tipoAviones">
+                    <td>{{tipo.marca}}</td>
+                    <td>{{tipo.modelo}}</td>
+                    <td>{{tipo.annio}}</td>
+                    <td>{{tipo.activo}}</td>
+                    <td>{{tipo.cantPasajeros}}</td>
+                    <td>{{tipo.cantFilas}}</td>
+                    <td>{{tipo.cantAsientosPorFila}}</td>
+    
+                    <td>
+                        <a (click)="delete(tipo._id)" class="edit btn btn-primary rounded me-2"
+                            data-toggle="modal">Editar</a>
+                        <a (click)="delete(tipo._id)" class="delete btn btn-danger rounded"
+                            data-toggle="modal">Eliminar</a>
+                    </td>   
+    
+                                      
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+    
+</body>

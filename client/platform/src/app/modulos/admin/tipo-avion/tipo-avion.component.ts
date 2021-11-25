@@ -18,4 +18,12 @@ export class TipoAvionComponent implements OnInit {
     this.tipoAvionesService.get().subscribe((tipoAviones)=>{this.tipoAviones = tipoAviones});
   }
 
+  delete(id: string): void {
+    if (confirm('¿Esta seguro que quiere borrar este registro?')) {
+      this.tipoAvionesService.deleteTipoAvion(id).subscribe((res: any) => {
+        this.tipoAviones = this.tipoAviones.filter((post: any) => post._id !== id);
+      });
+    }
+  }
+
 }
