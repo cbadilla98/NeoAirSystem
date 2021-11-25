@@ -14,9 +14,9 @@ const TipoAvionesSchema = new Schema(
         type: Number,
         required: true,
       },
-    activo: {
+      activo: {
         type: Boolean,
-        required: true,
+        default: "1",
       },
       cantPasajeros: {
         type: Number,

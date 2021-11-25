@@ -22,6 +22,10 @@ export class TipoAvionFormComponent implements OnInit {
     cantAsientosPorFila: new FormControl('', Validators.required),
   });
   
+  get marca() {
+    return this.postForm.get('marca');
+  }
+
   constructor(
     private tipoAvionesService: TipoAvionesService,
     private router: Router,
