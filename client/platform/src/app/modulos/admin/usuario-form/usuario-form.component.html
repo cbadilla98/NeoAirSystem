@@ -5,15 +5,88 @@
 <div class="mt-5">
     <form [formGroup]="postForm" (ngSubmit)="submitForm()">
         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Usuario</label>
+            <input formControlName="usuario" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+            <input formControlName="contrasennia" type="password" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre</label>
             <input formControlName="nombre" type="text" class="form-control" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Correo</label>
-            <input formControlName="nombre" type="email" class="form-control" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Apellidos</label>
+            <input formControlName="apellidos" type="text" class="form-control" aria-describedby="emailHelp">
         </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo</label>
+            <input formControlName="correo" type="email" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Fecha de Nacimiento</label>
+            <input formControlName="fechaNacimiento" type="date" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Telefono Celular</label>
+            <input formControlName="telefonoCelular" type="number" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tipo de usuario</label>
+            <select class="form-control" formControlName="tipoUsuario">
+                <option *ngFor="let item of lista"[ngValue]="item">{{item.nombre}}</option>
+            </select>
+        </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 </div>
 </body>
+<!-- {
+    usuario:{
+        type: String,
+        unique: true,
+        required: true,
+      },
+    contrasennia: {
+        type: String,
+        required: true,
+      },
+    nombre: {
+        type: String,
+        required: true,
+      },
+    apellidos: {
+        type: String,
+        required: true,
+      },
+    correo: {
+        type: String,
+        required: true,
+      },
+    fechaNacimiento: {
+        type: Date,
+        required: true,
+      },
+    lt: Number,
+    ln: Number,
+    telefonoTrabajo: String,
+    telefonoCelular: {
+        type: String,
+        required: true,
+      },
+    activo: {
+        type: Boolean,
+        default: "1",
+      },
+    tipoUsuario: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "TipoUsuario",
+        },
+    ],
+  },
+  { timestamps: true }
+); -->
