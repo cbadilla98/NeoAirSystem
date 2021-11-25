@@ -1,43 +1,43 @@
 <div class="container">
-    <form class="needs-validation" id="formRutas">
+    <form [formGroup]="formRutas" id="formRutas" name="formRutas" (ngSubmit)="submitForm()">
         <div class="row justify-content-center mb-5">
             <div class="col-md-3">
                 <div class="col-md-12 mb-3">
                     <label for="inputAction" class="form-label" id="inputSalidaLabel">Salida</label>
-                    <input type="text" class="form-control" id="inputSalida">
+                    <input type="text" class="form-control" id="inputSalida" formControlName="salida">
                     <small id="helpId" class="form-text text-muted">Lugar de salida</small>
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="inputDestino" class="form-label" id="inputDestinoLabel">Destino</label>
-                    <input type="text" class="form-control" id="inputDestino">
+                    <input type="text" class="form-control" id="inputDestino" formControlName="destino">
                     <small id="helpId" class="form-text text-muted">Lugar de destino</small>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12 mb-3">
                         <label for="inputDuracion" class="form-label" id="inputDuracion">Duracion</label>
-                        <ngb-timepicker [(ngModel)]="formRutas.time" name="time"></ngb-timepicker>
+                        <ngb-timepicker formControlName="duracion"></ngb-timepicker>
                         <small id="helpId" class="form-text text-muted">Seleccione la duracion del vuelo</small>
                     </div>
                     <!-- <pre>Selected time: {{time | json}}</pre> -->
                 </div>
                 <div class="col-md-12 mb-3">
                     <label for="selectAviones" class="form-label">Seleccione un avion</label>
-                    <select class="form-select">
-                        <option *ngFor="let avion of aviones" value="{{avion._id}}">
+                    <select class="form-select" formControlName="aviones">
+                        <option *ngFor="let avion of arrayAviones" value="{{avion._id}}">
                             {{avion.descripcion}}
                         </option>
                     </select>
                 </div>
                 <div class="row justify-content-center mb-3">
-                    <div class="col-md-4 text-center">
+                    <!-- <div class="col-md-4 text-center">
                         <button type="button" class="btn btn-secondary pr-3 " id="btnEditar">Editar</button>
-                    </div>
+                    </div> -->
                     <div class="col-md-4 text-center">
-                        <button type="button" class="btn btn-primary pr-3 " id="btnNuevo">Nuevo</button>
+                        <button type="submit" class="btn btn-primary pr-3 " id="btnNuevo">Nuevo</button>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <!-- <div class="col-md-4 text-center">
                         <button type="button" class="btn btn-secondary pr-3 " id="btnCancelar">Cancelar</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-9">
@@ -48,7 +48,8 @@
                             <th scope="col">Salida</th>
                             <th scope="col">Destino</th>
                             <th scope="col">Duracion</th>
-                            <th scope="col">Editar</th>
+                            <th scope="col">Avion</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,10 +57,14 @@
                             <td>{{ruta.salida}}</td>
                             <td>{{ruta.destino}}</td>
                             <td>{{ruta.duracion | date:'h:mm'}}</td>
-                            <td><a href="#editEmployeeModal" class="edit btn btn-small btn-primary rounded me-2"
-                                    data-toggle="modal"><i class="far fa-edit"></i>Editar</a>
-                                <a class="delete btn  btn-small btn-danger rounded" data-toggle="modal"><i
-                                        class="far fa-trash-alt"></i>Eliminar</a>
+                            <td *ngIf="ruta.aviones[0] !== undefined && ruta.aviones[0] !== null">
+                                {{ruta.aviones[0].descripcion}}</td>
+                            <td>
+                                <!-- <a href="#editEmployeeModal" class="edit btn btn-small btn-primary rounded me-2"
+                                    data-toggle="modal"><i class="far fa-edit"></i>Editar</a> -->
+                                <!-- <a class="delete btn  btn-small btn-danger rounded" data-toggle="modal"><i
+                                        class="far fa-trash-alt"></i>Eliminar</a> -->
+                                 <button type="button" class="btn btn-danger rounded" id="btnEliminar">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
