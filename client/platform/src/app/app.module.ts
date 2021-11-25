@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RutasComponent } from './modulos/admin/rutas/rutas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
-
+import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.compon
     UserComponent,
     RutasComponent,
     UsuarioFormComponent,
-    TipoAvionComponent
+    TipoAvionComponent,
+    TipoAvionFormComponent,
   ],
   imports: [
     BrowserModule,

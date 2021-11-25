@@ -32,8 +32,12 @@ export class TipoAvionesService {
         );
       }
 
-      addTipoAvion(marca: string, modelo: string, annio: Number, activo: true, cantPasajeros: Number, cantFilas:Number, cantAsientosPorFila: Number): Observable<any> {
-        return this.http.post(`${TIPOAVIONES_API_ENDPOINT}/tipoaviones`, "");
+      create(post: any): Observable<any> {
+        return this.http.post(TIPOAVIONES_API_ENDPOINT, post);
+      }
+
+      edit(id: string, post: any): Observable<any> {
+        return this.http.put(`${TIPOAVIONES_API_ENDPOINT}/${id}`, post);
       }
 
 }
