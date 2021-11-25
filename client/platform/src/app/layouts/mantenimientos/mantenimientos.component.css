@@ -17,3 +17,11 @@
     font-size: larger;
     padding: 0px 15px;
 }
+.divDropdown button{
+    font-size: 18px;
+    color: white;
+}
+.dropdown-item{
+    font-size: 18px;
+    color: white;
+}   

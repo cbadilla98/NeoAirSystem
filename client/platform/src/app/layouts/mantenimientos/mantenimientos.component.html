@@ -16,19 +16,14 @@
                 <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link px-lg-3 py-3 py-lg-4"  href="/register">Register</a></li>
                 <li class="nav-item" *ngIf="!isLoggedIn"><a class="nav-link px-lg-3 py-3 py-lg-4"  href=   "/login">Login</a></li>
                 <li class="nav-item"*ngIf="isLoggedIn" ><a href="#" class="nav-link px-lg-3 py-3 py-lg-4" (click)="logout()">{{username}} - LogOut</a> -->
-        </ul>
-        <ul class="navbar-nav mr-auto">
-            <li ngbDropdown class="nav-item dropdown">
-                <a ngbDropdownToggle class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nombre - Usuario</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </li>
-        </ul>
+        </ul>  
+        <div ngbDropdown class="nav-item-dropdown divDropdown">
+            <button class="btn" id="dropdownBasic1" ngbDropdownToggle>Nombre Perfil</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="background-color: #16697A;">
+                <a ngbDropdownItem class="dropdown-item" href="/admin">Mi perfil</a>
+                <a ngbDropdownItem class="dropdown-item" href="/admin">Cerrar Sesión</a>
+            </div>
+          </div>
     </div>
 </nav>
 <router-outlet></router-outlet>

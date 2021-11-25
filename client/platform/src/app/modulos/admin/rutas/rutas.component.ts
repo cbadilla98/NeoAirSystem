@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AvionesService } from 'src/app/services/admin-aviones/aviones.service';
 import { RutasService } from '../../../services/admin-rutas/rutas.service';
 import * as $ from 'jquery';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-rutas',
@@ -13,12 +14,17 @@ export class RutasComponent implements OnInit {
   constructor(private rutasService: RutasService, private avionesService: AvionesService) { }
   rutas =  <any>[];
   aviones = <any>[];
-  time = {hour: '', minute: ''};
   
+  formRutas: any = {
+    salida: null,
+    destino: null,
+    time: {hour: 12, minute: 12},
+
+  }
+
   ngOnInit(): void {
     this.rutasService.get().subscribe((rutas)=>{this.rutas = rutas});
     this.avionesService.get().subscribe((aviones)=>{this.aviones = aviones});
-    
 
     // console.log("paso por aca");
     // console.log(this.rutas);
@@ -29,7 +35,7 @@ export class RutasComponent implements OnInit {
     // });
 
     $("#btnEditar").on('click',function() {
-      console.log("hola query");
+      // console.log(avion);
     })
   }
 
