@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import { TipoUsuarioService } from 'src/app/services/tipo-usuario.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import {TipoUsuario} from '../../../models/tipo-usuario'
 
 @Component({
   selector: 'app-usuario-form',
@@ -13,10 +15,18 @@ export class UsuarioFormComponent implements OnInit {
   postForm = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
     correo: new FormControl('', Validators.required),
+    usuario: new FormControl('', Validators.required),
+    contrasennia: new FormControl('', Validators.required),
+    apellidos: new FormControl('', Validators.required),
+    fechaNacimiento: new FormControl('', Validators.required),
+    telefonoCelular: new FormControl('', Validators.required),
+    tipoUsuario: new FormControl('', Validators.required)
   });
-
+  
+  lista:TipoUsuario[]= [];
   constructor(
     private adminService: AdminService,
+    private tipoUsuarioService: TipoUsuarioService,
     private router: Router,
     private activeRoute: ActivatedRoute
   ) {}
@@ -25,6 +35,7 @@ export class UsuarioFormComponent implements OnInit {
   post: any = {};
 
   ngOnInit(): void {
+    this.tipoUsuarioService.get().subscribe((tipoUsuario) => {this.lista  = tipoUsuario});
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
         this.editMode = true;
@@ -34,10 +45,27 @@ export class UsuarioFormComponent implements OnInit {
           this.postForm.setValue({
             nombre: data.nombre,
             correo: data.correo,
+            usuario: data.usuario,
+            contrasennia: data.contrasennia,
+            apellidos: data.apellidos,
+            fechaNacimiento: data.fechaNacimiento,
+            telefonoCelular: data.telefonoCelular,
+            tipoUsuario: data.tipoUsuario,
+
           });
         });
       }
     });
+    
+    
+  }
+  getTipoUsuariosFromAPI(){
+    this.tipoUsuarioService.get().subscribe((response)=>{
+      console.log('Response from API is',response);
+    },(error)=>{
+      console.log('Error:',error);
+    } 
+    )
   }
 
   navigateToList() {
