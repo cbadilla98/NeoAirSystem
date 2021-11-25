@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './tipo-avion-form.component.html',
   styleUrls: ['./tipo-avion-form.component.scss']
 })
-export class tipoAvionFormComponent implements OnInit {
+export class TipoAvionFormComponent implements OnInit {
   postForm = new FormGroup({
 
     marca: new FormControl('', Validators.required),
