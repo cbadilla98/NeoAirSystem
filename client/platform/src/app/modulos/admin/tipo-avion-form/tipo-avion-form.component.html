@@ -3,7 +3,9 @@
 
     <div class="mt-5 col-10">
 <div class="mt-5">
+
     <form [formGroup]="postForm"  (ngSubmit)="submitForm()">
+
         <div class="mb-3">
             <label for="inputNombre" class="form-label">Marca</label>
             <input formControlName="marca" type="text" class="form-control" aria-describedby="emailHelp">
@@ -31,7 +33,7 @@
             <input formControlName="cantAsientosPorFila" type="number" class="form-control" aria-describedby="emailHelp">
         </div>
         <button type="submit" class="btn btn-primary">Aceptar</button>
-    </form>
+    <!-- </form> -->
 </div>
 </div>
 </body>
