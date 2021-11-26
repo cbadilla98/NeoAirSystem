@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoAvionesService } from 'src/app/services/admin-tipoAviones/tipoAviones.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tipo-avion',
@@ -8,14 +10,22 @@ import { TipoAvionesService } from 'src/app/services/admin-tipoAviones/tipoAvion
 })
 export class TipoAvionComponent implements OnInit {
 
-  constructor(private tipoAvionesService: TipoAvionesService) { 
-
+  constructor(
+    private tipoAvionesService: TipoAvionesService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
+    ) { 
+    
   }
 
   tipoAviones = <any>[];
 
   ngOnInit(): void {
     this.tipoAvionesService.get().subscribe((tipoAviones)=>{this.tipoAviones = tipoAviones});
+  }
+
+  editar(id : String){
+    this.router.navigate(['tipoAvionesForm/' + id])
   }
 
   delete(id: string): void {

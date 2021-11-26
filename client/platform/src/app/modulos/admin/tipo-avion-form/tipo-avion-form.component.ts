@@ -4,14 +4,17 @@ import { TipoAvionesService } from 'src/app/services/admin-tipoAviones/tipoAvion
 
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tipo-avion-form',
   templateUrl: './tipo-avion-form.component.html',
   styleUrls: ['./tipo-avion-form.component.scss']
 })
+
+
 export class TipoAvionFormComponent implements OnInit {
+  anio = Date.prototype.getFullYear.toString();
   postForm = new FormGroup({
 
     marca: new FormControl('', Validators.required),
@@ -21,7 +24,7 @@ export class TipoAvionFormComponent implements OnInit {
     cantFilas: new FormControl('', Validators.required),
     cantAsientosPorFila: new FormControl('', Validators.required),
   });
-  
+
   get marca() {
     return this.postForm.get('marca');
   }
@@ -30,7 +33,7 @@ export class TipoAvionFormComponent implements OnInit {
     private tipoAvionesService: TipoAvionesService,
     private router: Router,
     private activeRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   editMode = false;
   post: any = {};
@@ -39,49 +42,61 @@ export class TipoAvionFormComponent implements OnInit {
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
         this.editMode = true;
-///para hacer el de actualizar/modificar
         this.tipoAvionesService.getById(params['id']).subscribe((data) => {
           this.post = data;
           this.postForm.setValue({
-            nombre: data.nombre,
-            correo: data.correo,
-            usuario: data.usuario,
-            contrasennia: data.contrasennia,
-            apellidos: data.apellidos,
-            fechaNacimiento: data.fechaNacimiento,
-            telefonoCelular: data.telefonoCelular,
-            tipoUsuario: data.tipoUsuario,
+            marca: data.marca,
+            modelo: data.modelo,
+            annio: data.annio,
+            cantPasajeros: data.cantPasajeros,
+            cantFilas: data.cantFilas,
+            cantAsientosPorFila: data.cantAsientosPorFila,
 
           });
         });
       }
     });
-    
-    
+
+
   }
- 
+
 
   navigateToList() {
     this.router.navigate(['/dashboard/blog/list']);
   }
 
+ 
+
   submitForm() {
-    console.log("paso por aca 1");
     if (this.postForm.valid) {
-      console.log("paso por aca2 ");
       if (this.editMode) {
-        console.log("paso por aca 3");
         this.tipoAvionesService
           .edit(this.post._id, this.postForm.value)
           .subscribe((data) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Modificado Correctamente',
+            })
             this.navigateToList();
           });
       } else {
         console.log("paso por aca 4");
         this.tipoAvionesService.create(this.postForm.value).subscribe((data) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Creado Correctamente',
+            // text: 'Por favor rellene toda la información',
+          })
           this.navigateToList();
+          this.postForm.reset();
         });
       }
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'No se permiten espacios en blanco',
+        // text: 'Por favor rellene toda la información',
+      })
     }
   }
 }

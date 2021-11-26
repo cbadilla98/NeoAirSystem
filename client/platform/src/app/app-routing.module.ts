@@ -41,6 +41,9 @@ const routes: Routes = [
       {
         path: 'tipoAvionesForm', component : TipoAvionFormComponent
       },
+      {
+        path: 'tipoAvionesForm/:id', component : TipoAvionFormComponent
+      },
     ],
   },
   //usuario
