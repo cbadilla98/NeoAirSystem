@@ -10,6 +10,7 @@ import { AvionesComponent } from './aviones/aviones.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionFormComponent } from './tipo-avion-form/tipo-avion-form.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TipoAvionFormComponent } from './tipo-avion-form/tipo-avion-form.compon
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    GoogleMapsModule
   ]
 })
 export class AdminModule { }
