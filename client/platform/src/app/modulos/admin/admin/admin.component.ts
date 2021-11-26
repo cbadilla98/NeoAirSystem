@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +9,11 @@ import { AdminService } from '../../../services/admin.service';
 })
 export class AdminComponent implements OnInit {
   usuarios = <any>[];
-  constructor(private usuariosService: AdminService) {}
+  
+  constructor(
+    private usuariosService: AdminService,
+    private router: Router
+    ) {}
   
   ngOnInit(): void {
     this.usuariosService.get().subscribe((usuarios)=>{this.usuarios  = usuarios});
@@ -32,4 +37,7 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  editar(id : String){
+    this.router.navigate(['usuario/' + id])
+  }
 }

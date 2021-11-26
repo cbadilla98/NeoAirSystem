@@ -36,7 +36,8 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tipo de usuario</label>
             <select class="form-control" formControlName="tipoUsuario">
-                <option *ngFor="let item of lista"[ngValue]="item">{{item.nombre}}</option>
+                <option [ngValue]="null" disabled>Elija el tipo de usuario</option>
+                <option *ngFor="let item of lista"[ngValue]="item" selected="item.id">{{item.nombre}}</option>
             </select>
         </div>
         <div class="mb-3">

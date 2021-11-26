@@ -67,7 +67,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
   //   })
   // }
 
-  //mapa
+  //mapa--------------------------------------------------------------------------------------------------
   lista:TipoUsuario[]= [];
   constructor(
     private adminService: AdminService,
@@ -78,7 +78,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
 
   editMode = false;
   post: any = {};
-
+//INIT---------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.tipoUsuarioService.get().subscribe((tipoUsuario) => {this.lista  = tipoUsuario});
     this.activeRoute.params.subscribe((params) => {
@@ -143,7 +143,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
   }
 
   navigateToList() {
-    this.router.navigate(['/dashboard/blog/list']);
+    this.router.navigate(['admin']);
   }
 
   submitForm() {
