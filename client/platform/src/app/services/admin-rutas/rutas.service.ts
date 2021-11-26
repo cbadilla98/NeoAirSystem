@@ -23,9 +23,16 @@ export class RutasService {
     getById(id: string): Observable<any> {
         return this.http.get(`${RUTAS_API_ENDPOINT}/${id}`);
     }
-    
+
     create(post: any): Observable<any> {
         return this.http.post(RUTAS_API_ENDPOINT, post);
-      }
-
+    }
+    deleteRutas(id: string): Observable<any> {
+        return this.http.delete(
+            `${RUTAS_API_ENDPOINT}/${id}/`
+        );
+    }
+    updateRutas(id: string, post: any): Observable<any> {
+        return this.http.put(`${RUTAS_API_ENDPOINT}/${id}`, post);
+    }
 }

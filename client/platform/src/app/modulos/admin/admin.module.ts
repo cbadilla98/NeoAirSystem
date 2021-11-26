@@ -12,8 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionFormComponent } from './tipo-avion-form/tipo-avion-form.component';
 
 
-
-
 @NgModule({
   declarations: [
     AdminComponent,

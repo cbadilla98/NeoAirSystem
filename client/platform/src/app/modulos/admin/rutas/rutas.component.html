@@ -29,15 +29,15 @@
                     </select>
                 </div>
                 <div class="row justify-content-center mb-3">
-                    <!-- <div class="col-md-4 text-center">
-                        <button type="button" class="btn btn-secondary pr-3 " id="btnEditar">Editar</button>
-                    </div> -->
                     <div class="col-md-4 text-center">
-                        <button type="submit" class="btn btn-primary pr-3 " id="btnNuevo">Nuevo</button>
+                        <button type="submit" class="btn btn-secondary pr-3 " id="btnEditar" hidden style="background-color: '#16697A'; color: #fff;">Editar</button>
                     </div>
-                    <!-- <div class="col-md-4 text-center">
-                        <button type="button" class="btn btn-secondary pr-3 " id="btnCancelar">Cancelar</button>
-                    </div> -->
+                    <div class="col-md-4 text-center" id="divBtnNuevo">
+                        <button type="submit" class="btn pr-3" id="btnNuevo" style="background-color: '#16697A'; color: #fff;">Nuevo</button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button type="button" class="btn btn-secondary pr-3 " id="btnCancelar" (click)="cancelar()" hidden>Cancelar</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">
@@ -60,11 +60,8 @@
                             <td *ngIf="ruta.aviones[0] !== undefined && ruta.aviones[0] !== null">
                                 {{ruta.aviones[0].descripcion}}</td>
                             <td>
-                                <!-- <a href="#editEmployeeModal" class="edit btn btn-small btn-primary rounded me-2"
-                                    data-toggle="modal"><i class="far fa-edit"></i>Editar</a> -->
-                                <!-- <a class="delete btn  btn-small btn-danger rounded" data-toggle="modal"><i
-                                        class="far fa-trash-alt"></i>Eliminar</a> -->
-                                 <button type="button" class="btn btn-danger rounded" id="btnEliminar">Eliminar</button>
+                                <a (click)="delete(ruta._id)" class="btn btn-danger rounded me-2">Eliminar</a>
+                                <a (click)="verRegistro(ruta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
                             </td>
                         </tr>
                     </tbody>

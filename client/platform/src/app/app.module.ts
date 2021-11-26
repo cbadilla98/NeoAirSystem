@@ -17,6 +17,7 @@ import { RutasComponent } from './modulos/admin/rutas/rutas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
+import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avi
     UsuarioFormComponent,
     TipoAvionComponent,
     TipoAvionFormComponent,
+    HorariosComponent
   ],
   imports: [
     BrowserModule,

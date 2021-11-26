@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-horarios',
@@ -6,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./horarios.component.scss']
 })
 export class HorariosComponent implements OnInit {
-
+  
+  // model: NgbDateStruct;
+  // date: {year: number, month: number};
+  
   constructor() { }
-
+  
+  
   ngOnInit(): void {
   }
 
