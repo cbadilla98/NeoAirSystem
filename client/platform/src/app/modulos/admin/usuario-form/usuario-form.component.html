@@ -1,3 +1,4 @@
+
 <body class="m-0 row justify-content-center">
     
 
@@ -38,11 +39,24 @@
                 <option *ngFor="let item of lista"[ngValue]="item">{{item.nombre}}</option>
             </select>
         </div>
-        
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Dirección</label>
+            <google-map height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options">
+                <map-marker
+                    [position]="positionMarcador"
+                    [label]="label"
+                    [title]="title"
+                    [options]="optionsMarcador"
+                    (mapDragend)="dragend($event)"
+                    >
+                </map-marker>
+            </google-map>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 </div>
+
 </body>
 <!-- {
     usuario:{
