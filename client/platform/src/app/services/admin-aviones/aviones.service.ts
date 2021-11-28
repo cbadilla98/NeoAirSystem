@@ -23,13 +23,19 @@ export class AvionesService {
     getById(id: string): Observable<any> {
         return this.http.get(`${AVIONES_API_ENDPOINT}/${id}`);
     }
-    //   addComment(postId: string, comment: Comment): Observable<any> {
-    //     return this.http.post(`${BLOG_API_ENDPOINT}/${postId}/comment`, comment);
-    //   }
-    //   deleteComment(postId: string, commentId: any): Observable<any> {
-    //     return this.http.delete(
-    //       `${BLOG_API_ENDPOINT}/${postId}/comments/${commentId}`
-    //     );
-    //   }
+
+    deleteAvion(id: string): Observable<any> {
+        return this.http.delete(
+          `${AVIONES_API_ENDPOINT}/${id}/`
+        );
+      }
+
+      edit(id: string, post: any): Observable<any> {
+        return this.http.put(`${AVIONES_API_ENDPOINT}/${id}`, post);
+      }
+
+      create(post: any): Observable<any> {
+        return this.http.post(AVIONES_API_ENDPOINT, post);
+    }
 
 }

@@ -1,1 +1,47 @@
-<p>aviones works!</p>
+<body class="m-0 row justify-content-center">
+    
+
+    <div class="text-center">
+        <h4>Administrar <b> Aviones</b> </h4>
+    </div>
+
+    <div class="col-sm-6 d-flex justify-content-end">
+        <a href="/avionesForm" class="btn btn-success btn-small" data-toggle="modal">&nbsp;&nbsp; <span
+                class="d-inline-block">Nuevo</span></a>
+
+    </div>
+
+    <div class="mt-2 col-12 col-md-10 ">
+        <table class="table table-striped table-hover mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Tipo de marca</th>
+                    <th scope="col">Tipo de modelo</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let avion of aviones">
+                    <td>{{avion.descripcion}}</td>
+                    <td>{{avion.activo}}</td>
+                    <td>{{avion.tipoAviones[0].marca}}</td>
+                    <td>{{avion.tipoAviones[0].modelo}}</td>
+                    <td>{{avion.tipoAviones[0].annio}}</td>
+    
+                    <td>
+                        <a  (click)="editar(avion._id)" class="btn btn-primary rounded me-2"
+                            data-toggle="modal">Editar</a>
+                        <a (click)="deleteAvion(avion._id)" class="delete btn btn-danger rounded"
+                            data-toggle="modal">Eliminar</a>
+                    </td>   
+    
+                                      
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+    
+</body>

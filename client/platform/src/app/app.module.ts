@@ -22,6 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionComponent } from './modulos/admin/tipo-avion/tipo-avion.component';
 import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
+import { AvionesComponent } from './modulos/admin/aviones/aviones.component';
+import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
     UsuarioFormComponent,
     TipoAvionComponent,
     TipoAvionFormComponent,
-    HorariosComponent
+    HorariosComponent,
+    AvionesComponent,
+    AvionesFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+<body class="container">
+
+    <h4 class="mb-3">Administrar <b> Avión</b></h4>
+
+    <div class="row">
+        <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Tipo de Avión</label>
+                    <h5 *ngIf="editMode" class="form-label">Este avión es de tipo: {{labelTipoAvion}}</h5>
+                    <a *ngIf="editMode">Cambiar a:</a>
+                    <select class="form-control" formControlName="tipoAviones">
+                        <option *ngFor="let item of lista" [ngValue]="item" selected="item_id" >{{item.marca}} - {{item.modelo}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputDescripcion" class="form-label">Descripcion</label>
+                    <input formControlName="descripcion" type="text" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="descripcion?.invalid" class="text-danger">La descripción es requerida</span>
+                </div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Listo</button>
+        </form>
+    </div>
+    
+
+
+</body>

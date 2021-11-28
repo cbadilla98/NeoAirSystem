@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TipoAvionFormComponent } from './tipo-avion-form/tipo-avion-form.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
+import { AvionesFormComponent } from './aviones-form/aviones-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +25,8 @@ import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
     TipoAvionComponent,
     AvionesComponent,
     UsuarioFormComponent,
-    TipoAvionFormComponent
+    TipoAvionFormComponent,
+    AvionesFormComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,9 @@ import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
     HttpClientModule,
     NgbModule,
     GoogleMapsModule,
-    DateTimePickerModule
+    DateTimePickerModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AdminModule { }
