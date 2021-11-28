@@ -4,11 +4,11 @@ const HorariosSchema = new Schema(
   {
     
     fechaHoraSalida: {
-        type: String,
+        type: Date,
         required: true,
       },
     fechaHoraLlegada: {
-        type: String,
+        type: Date,
         required: true,
       },
     activo: {

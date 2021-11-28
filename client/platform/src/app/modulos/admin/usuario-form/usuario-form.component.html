@@ -1,8 +1,9 @@
 
 <body class="m-0 row justify-content-center">
-    
+    <h1 *ngIf="!editMode">Agregar usuario</h1>
+    <h1 *ngIf="editMode">Editar usuario</h1>
 
-    <div class="mt-5 col-10">
+    <div class="col-10">
 <div class="mt-5">
     <form [formGroup]="postForm" (ngSubmit)="submitForm()">
         <div class="mb-3">
@@ -35,8 +36,10 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tipo de usuario</label>
-            <select class="form-control" formControlName="tipoUsuario">
-                <option *ngFor="let item of lista"[ngValue]="item">{{item.nombre}}</option>
+            <h5 *ngIf="editMode" class="form-label">Este usuario es de tipo: {{labelTipoUsuario}}</h5>
+            <a *ngIf="editMode">Cambiar a:</a>
+            <select class="form-control" formControlName="tipoUsuario" [compareWith]="compareFn">
+                <option *ngFor="let item of lista"[ngValue]="item" selected="item.id">{{item.nombre}}</option>
             </select>
         </div>
         <div class="mb-3">
@@ -52,7 +55,8 @@
                 </map-marker>
             </google-map>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a (click)="cancelar()" class="edit btn btn-danger rounded m-2"data-toggle="modal">Cancelar</a>
     </form>
 </div>
 </div>

@@ -24,8 +24,9 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
     tipoUsuario: new FormControl('', Validators.required),
     lt: new FormControl(''),
     ln: new FormControl(''),
+    
   });
- 
+  labelTipoUsuario=''
   
   //mapa
   zoom = 12
@@ -67,7 +68,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
   //   })
   // }
 
-  //mapa
+  //mapa--------------------------------------------------------------------------------------------------
   lista:TipoUsuario[]= [];
   constructor(
     private adminService: AdminService,
@@ -78,7 +79,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
 
   editMode = false;
   post: any = {};
-
+//INIT---------------------------------------------------------------------------------------------------
   ngOnInit(): void {
     this.tipoUsuarioService.get().subscribe((tipoUsuario) => {this.lista  = tipoUsuario});
     this.activeRoute.params.subscribe((params) => {
@@ -88,6 +89,13 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
         this.adminService.getById(params['id']).subscribe((data) => {
           var date= new Date(data.fechaNacimiento)
           this.post = data;
+
+          var jsonS=JSON.stringify(data.tipoUsuario);
+          
+          var str=jsonS.substring(1,jsonS.length-1);
+          var jsonJ=JSON.parse(str);
+          var jsonA=JSON.parse(jsonS);
+
           this.postForm.setValue({
             nombre: data.nombre,
             correo: data.correo,
@@ -96,10 +104,27 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
             apellidos: data.apellidos,
             fechaNacimiento: date.toISOString().split('T')[0],
             telefonoCelular: data.telefonoCelular,
-            tipoUsuario: data.tipoUsuario,
+            tipoUsuario: this.tipoUsuarioService.getById(params[jsonJ._id]),
             lt: data.lt,
-            ln: data.ln
+            ln: data.ln,
+            
+            
           });
+          console.log(data.tipoUsuario.toString());
+          console.log(JSON.stringify(data.tipoUsuario));
+          var jsonS=JSON.stringify(data.tipoUsuario);
+          
+          var str=jsonS.substring(1,jsonS.length-1);
+          var jsonJ=JSON.parse(str);
+          var jsonA=JSON.parse(jsonS);
+          console.log(str);
+          console.log(jsonA[0]);
+          console.log(jsonJ._id);
+          console.log(this.tipoUsuarioService.getById(jsonJ._id))
+          for(var i = 0; i < jsonJ.length; i++) {
+            var obj = jsonA[i];
+            console.log(obj._id);
+        }
           this.positionMarcador = {
             lat: data.lt,
             lng: data.ln,
@@ -108,6 +133,8 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
             lat: data.lt,
             lng: data.ln,
           }
+          this.labelTipoUsuario=jsonJ.nombre;
+          this.postForm.controls['tipoUsuario'].patchValue(this.tipoUsuarioService.getById(jsonJ._id),500)
         });
         
       }else{
@@ -131,7 +158,9 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
  }
  //INIT -
 
- 
+ compareFn(c1: any, c2:any): boolean {     
+  return c1 && c2 ? c1.id === c2.id : c1 === c2; 
+}
 
   getTipoUsuariosFromAPI(){
     this.tipoUsuarioService.get().subscribe((response)=>{
@@ -143,7 +172,7 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
   }
 
   navigateToList() {
-    this.router.navigate(['/dashboard/blog/list']);
+    this.router.navigate(['admin']);
   }
 
   submitForm() {
@@ -187,4 +216,8 @@ export class UsuarioFormComponent implements OnInit, AfterViewInit {
     
 
   }
+  cancelar(){
+    this.router.navigate(['admin'])
+  }
+  
 }
