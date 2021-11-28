@@ -28,6 +28,21 @@ export class TipoAvionFormComponent implements OnInit {
   get marca() {
     return this.postForm.get('marca');
   }
+  get modelo() {
+    return this.postForm.get('modelo');
+  }
+  get annio() {
+    return this.postForm.get('annio');
+  }
+  get cantPasajeros() {
+    return this.postForm.get('cantPasajeros');
+  }
+  get cantFilas() {
+    return this.postForm.get('cantFilas');
+  }
+  get cantAsientosPorFila() {
+    return this.postForm.get('cantAsientosPorFila');
+  }
 
   constructor(
     private tipoAvionesService: TipoAvionesService,

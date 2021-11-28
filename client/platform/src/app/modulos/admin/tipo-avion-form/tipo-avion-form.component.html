@@ -1,38 +1,58 @@
-<body class="m-0 row justify-content-center">
+<body class="container">
+
+    <h4 class="mb-3">Administrar <b>Tipos de avión</b></h4>
+
+    <div class="row">
+        <form class="" [formGroup]="postForm" (ngSubmit)="submitForm()">
+
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="inputNombre" class="form-label">Marca</label>
+                    <input formControlName="marca" type="text" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="marca?.invalid" class="text-danger">La marca es requerido</span>
+                </div>
+                <div class="mb-3">
+                    <label for="inputModelo" class="form-label">Modelo</label>
+                    <input formControlName="modelo" type="text" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="modelo?.invalid" class="text-danger">La modelo es requerido</span>
+                </div>
+            </div>
+           
+            <div class="mb-3">
+                <label for="inputAnnio" class="form-label">Año</label>
+                <div class="col-md-2">
+                    <input formControlName="annio" type="text" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="annio?.invalid" class="text-danger">Requerido</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputCantPasajeros" class="form-label">Cantidad de Pasajeros</label>
+                <div class="col-md-2">
+                    <input formControlName="cantPasajeros" type="number" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="cantPasajeros?.invalid" class="text-danger">Requerido</span>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="inputCantFilas" class="form-label">Cantidad de Filas</label>
+                <div class="col-md-2">
+                    <input formControlName="cantFilas" type="number" class="form-control" aria-describedby="emailHelp">
+                    <span *ngIf="cantFilas?.invalid" class="text-danger">Requerido</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputCantAsientosFila" class="form-label">Cantidad asientos por fila</label>
+                <div class="col-md-2">
+                    <input formControlName="cantAsientosPorFila" type="number" class="form-control"
+                        aria-describedby="emailHelp">
+                        <span *ngIf="cantAsientosPorFila?.invalid" class="text-danger">Requerido</span>
+                </div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Listo</button>
+        </form>
+    </div>
     
 
-    <div class="mt-5 col-10">
-<div class="mt-5">
 
-    <form [formGroup]="postForm"  (ngSubmit)="submitForm()">
-
-        <div class="mb-3">
-            <label for="inputNombre" class="form-label">Marca</label>
-            <input formControlName="marca" type="text" class="form-control" aria-describedby="emailHelp">
-            <span *ngIf="marca?.invalid" class="text-danger">La marca es requerido</span>
-        </div>
-        <div class="mb-3">
-            <label for="inputModelo" class="form-label">Modelo</label>
-            <input formControlName="modelo" type="text" class="form-control" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="inputAnnio" class="form-label">Año</label>
-            <input formControlName="annio" type="text" class="form-control" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="inputCantPasajeros" class="form-label">Cantidad de Pasajeros</label>
-            <input formControlName="cantPasajeros" type="number" class="form-control" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="inputCantFilas" class="form-label">Cantidad de Filas</label>
-            <input formControlName="cantFilas" type="number" class="form-control" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="inputCantAsientosFila" class="form-label">Cantidad asientos por fila</label>
-            <input formControlName="cantAsientosPorFila" type="number" class="form-control" aria-describedby="emailHelp">
-        </div>
-        <button type="submit" class="btn btn-primary">Aceptar</button>
-    </form>
-</div>
-</div>
 </body>
