@@ -43,9 +43,9 @@ export class HorariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.rutasService.get().subscribe((rutas) => {
-      this.getHorariosFromAPI()
       this.rutasDisponibles = rutas
     })
+    this.getHorariosFromAPI()
   }
 
 
@@ -99,8 +99,8 @@ export class HorariosComponent implements OnInit {
         this.formHorario.controls['rutas'].setValue(ruta);
         this.formHorario.controls['fechaHoraSalida'].setValue(horarioInicialFormated);
         this.formHorario.controls['fechaHoraLlegada'].setValue(horarioFinalFormated);
-        
-          this.horarioService
+
+        this.horarioService
           .updateHorario(this.post._id, this.formHorario.value)
           .subscribe((data) => {
             Swal.fire({
@@ -142,7 +142,14 @@ export class HorariosComponent implements OnInit {
   }
   getHorariosFromAPI() {
     this.horarioService.get().subscribe((horarios) => {
-      this.horarios = horarios
+      var i = 0;
+      for (const horario of horarios) {
+        if (horario.rutas[0] != undefined) {
+          this.horarios[i] = horario
+          i++;
+        }
+      }
+      console.log(this.horarios);
     })
   }
   delete(id: any) {

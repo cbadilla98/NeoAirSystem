@@ -148,7 +148,18 @@ export class RutasComponent implements OnInit {
 
   getRutasFromAPI() {
     this.rutasService.get().subscribe((rutas) => {
-      this.rutas = rutas
+
+      var i = 0;
+      for (const ruta of rutas) {
+        if (ruta.aviones[0] != undefined) {
+          this.rutas[i] = ruta
+          i++;
+        }
+      }
+      console.log(this.rutas);
+
+
+      // this.rutas = rutas
     })
   }
 }
