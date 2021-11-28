@@ -27,7 +27,7 @@ export class NgbTimeStringAdapter extends NgbTimeAdapter<string> {
   }
 
   toModel(duracion: NgbTimeStruct | null): string | null {
-    return duracion != null ? `1995-12-17 ${pad(duracion.hour)}:${pad(duracion.minute)}:${pad(duracion.second)}` : null;
+    return duracion != null ? `1995-12-17T${pad(duracion.hour)}:${pad(duracion.minute)}:${pad(duracion.second)}` : null;
   }
 }
 @Component({

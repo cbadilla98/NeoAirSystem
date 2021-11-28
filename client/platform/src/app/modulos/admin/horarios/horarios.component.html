@@ -1,16 +1,29 @@
 <div class="container">
-    <form class="needs-validation" id="formDe">
+    <form class="needs-validation" id="formDe" [formGroup]="formHorario" (ngSubmit)="submitForm()">
         <div class="row justify-content-center mb-5">
             <div class="col-md-3">
-                <div class="col-md-12">
-                    <input type="date" class="form-control">
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Horario</label>
+                    <ejs-datetimepicker formControlName="fechaHoraSalida"></ejs-datetimepicker>
                 </div>
-                <div class="col-md-12">
-                    <input type="number" class="form-control">
+                <div class="col-md-12 mb-3">
+                    <label for="inputRuta" class="form-label" id="inputSalidaLabel">Seleccione una ruta*</label>
+                    <input type="text" class="form-control" id="inputRuta" formControlName="rutas" readonly value="{{ruta}}">
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-4 text-center">
+                        <button type="submit" class="btn btn-secondary pr-3 " id="btnEditar" hidden style="background-color: '#16697A'; color: #fff;">Editar</button>
+                    </div>
+                    <div class="col-md-4 text-center" id="divBtnNuevo">
+                        <button type="submit" class="btn pr-3" id="btnNuevo" style="background-color: '#16697A'; color: #fff;">Nuevo</button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button type="button" class="btn btn-secondary pr-3 " id="btnCancelar" (click)="cancelar()" hidden>Cancelar</button>
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">
-                <h5>Rutas</h5>
+                <h5>Rutas disponibles</h5>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -22,15 +35,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr *ngFor="let ruta of rutasDisponibles">
+                            <td>{{ruta.salida}}</td>
+                            <td>{{ruta.destino}}</td>
+                            <td>{{ruta.duracion | date:'h:mm'}}</td>
+                            <td *ngIf="ruta.aviones[0] !== undefined && ruta.aviones[0] !== null">
+                                {{ruta.aviones[0].descripcion}}</td>
                             <td>
-                            <a class="btn rounded"
-                                style="background-color: '#16697A'; color: #fff;">Seleccionar</a>
+                                <a (click)="verRuta(ruta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Seleccionar ruta</a>
                             </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <h5>Horarios</h5>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Ruta</th>
+                            <th scope="col">Fecha de salida</th>
+                            <th scope="col">Fecha de llegada</th>
+                            <!-- <th scope="col">Duracion</th>
+                            <th scope="col">Acciones</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let horario of horarios">
+                            <td>{{horario.rutas[0].salida}} - {{horario.rutas[0].destino}}</td>
+                            <td>{{horario.fechaHoraSalida | date:'dd-MM-YYYY h:mm a'}}</td>
+                            <td>{{horario.fechaHoraLlegada | date:'dd-MM-YYYY h:mm a'}}</td>
+                            <td>
+                                <a (click)="delete(horario._id)" class="btn btn-danger rounded me-2">Eliminar</a>
+                                <a (click)="verRegistro(horario._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
+                            </td> 
                         </tr>
                     </tbody>
                 </table>

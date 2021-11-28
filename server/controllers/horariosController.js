@@ -1,14 +1,14 @@
 const HorariosModel = require("../models/Horarios");
 
-
+//Ponerle el populate
 module.exports.get = async (req, res, next) => {
-    const posts = await HorariosModel.find().populate("Rutas").exec();
+    const posts = await HorariosModel.find().populate("rutas").exec();
     res.json(posts);
 };
 
 module.exports.getById = async (req, res, next) => {
   const id = req.params.id;
-  const post = await HorariosModel.findOne({ _id: id }).populate("Rutas").exec();
+  const post = await HorariosModel.findOne({ _id: id }).populate("rutas").exec();
   res.json(post);
 };
 

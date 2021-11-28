@@ -10,6 +10,9 @@ import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.
 import { MantenimientosComponent } from './layouts/mantenimientos/mantenimientos.component';
 import { UserComponent } from './layouts/user/user.component';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
+
+
 
 // import { authInterceptorProviders } from './helpers/auth.interceptor';
 // import { PostComponent } from './components/blog/post/post.component';
@@ -38,7 +41,8 @@ import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    DateTimePickerModule
     //AIzaSyAtvh2PaRvmpYDyOinNGFpDsOMEdWl4ESY
   ],
   providers: [],
