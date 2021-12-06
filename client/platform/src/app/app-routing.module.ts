@@ -12,6 +12,7 @@ import { HomeComponent } from './modulos/user/home/home.component';
 import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.component';
 import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
+import { LoginComponent } from './modulos/user/login/login.component';
 const routes: Routes = [
   {
     //admin
@@ -59,6 +60,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'inicio', component: HomeComponent},
+      { path: 'login', component: LoginComponent},
     ],
   },
 ];

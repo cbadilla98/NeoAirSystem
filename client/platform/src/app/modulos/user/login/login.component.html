@@ -1,0 +1,81 @@
+<body id="page1">
+
+<div class="main">
+<!-- content -->
+	<section id="content">
+		<article class="col1">
+			<div class="pad_1">
+				<h2>Ingrese sus datos</h2>
+				<form id="form_1" [formGroup]="postForm" (ngSubmit)="submitForm()">
+					
+					<div class="wrapper">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                            <input formControlName="usuario" type="text" class="form-control" aria-describedby="emailHelp">
+                        </div>
+					</div>
+					<div class="wrapper">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                            <input formControlName="contrasennia" type="password" class="form-control" aria-describedby="emailHelp">
+                        </div>
+				    </div>
+					
+					<div class="wrapper">
+						<button type="submit" class="btn btn-primary">¡A volar!</button>
+					</div>
+				</form>
+				
+			</div>
+		</article>
+		<article class="col2 pad_left1">
+			<h2>Welcome to our Website!</h2>
+			<p class="color1">Air Lines is a free web template created by TemplateMonster.com team. This website template is optimized for 1024X768 screen resolution. </p>
+			<div class="marker">
+				<div class="wrapper">
+					<p class="pad_bot2"><strong>Aircraft</strong></p>
+					<p class="pad_bot2">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+				</div>
+			</div>
+			<div class="wrapper pad_bot2"><a href="#" class="button1">Read More</a></div>
+			<div class="marker">
+				<div class="wrapper">
+					<p class="pad_bot2"><strong>Charters</strong></p>
+					<p class="pad_bot2">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+				</div>
+			</div>
+			<div class="wrapper pad_bot2">
+				<a href="#" class="button1">Reservation</a>
+				<a href="#" class="button2">Fleet</a>
+			</div>
+			<div class="wrapper">
+				<article class="cols">
+					<h2>Our Clients</h2>
+					<p><strong>Avero eoset</strong> accusamus et iusto odio dig- nissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
+					<p>Atque corrupti quos dolores et quas moles- tias excepturi sint <a href="#">occaecati cupiditate</a> non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+				</article>
+				<div class="box1">
+					<div class="pad_1">
+						<div class="wrapper">
+							<p class="pad_bot2">Lorem ipsum dolor sit amet, consectetur adip- isicing elit, sed do eius- mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+							<p><span class="right">Mr. Thomas Lloyd</span>&nbsp;<br></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+<!-- / content -->
+</div>
+<div class="body2">
+	<div class="main">
+<!-- footer -->
+		<footer>
+			<a rel="nofollow" href="http://www.html5xcss3.com/" target="_blank">Free HTML5 Templates</a> designed by TemplateMonster.com<br>
+		</footer>
+<!-- / footer -->
+	</div>
+</div>
+
+</body>
+

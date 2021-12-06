@@ -3,11 +3,15 @@ const router = express.Router();
 const UsuarioModel = require("../models/Usuario");
 const controller = require("../controllers/usuarioController.js");
 
-router.get("/", controller.get);
+const auth = require("../middleware/auth");
+
+router.get("/",auth, controller.get);
 
 router.get("/:id", controller.getById);
 
 router.post("/", controller.signup);
+
+router.post("/login", controller.signin);
 
 router.delete("/:id", controller.delete);
 
