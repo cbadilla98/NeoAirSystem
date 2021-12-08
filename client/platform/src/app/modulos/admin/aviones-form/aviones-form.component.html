@@ -14,8 +14,9 @@
                         <option *ngFor="let item of lista" [ngValue]="item" selected="item_id" >{{item.marca}} - {{item.modelo}}</option>
                     </select>
                 </div>
+
                 <div class="mb-3">
-                    <label for="inputDescripcion" class="form-label">Descripcion</label>
+                    <label for="descripcion" class="form-label">Descripcion</label>
                     <input formControlName="descripcion" type="text" class="form-control" aria-describedby="emailHelp">
                     <span *ngIf="descripcion?.invalid" class="text-danger">La descripción es requerida</span>
                 </div>

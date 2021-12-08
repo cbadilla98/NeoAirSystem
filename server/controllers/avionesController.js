@@ -30,10 +30,10 @@ module.exports.delete = async (req, res, next) => {
 };
 
 module.exports.update = async (req, res, next) => {
-  const { tipoAviones,activo } = req.body;
+  const { descripcion,tipoAviones,activo } = req.body;
   const post = await AvionesModel.findOneAndUpdate(
-    { _id: req.params.id },
-    { tipoAviones, activo }, // ==> {activo: activo, nombre: nombre}
+    { _id: req.params.id},
+    { descripcion,tipoAviones, activo }, // ==> {activo: activo, nombre: nombre}
     { new: true } // retornar el registro que hemos modificado con los nuevos valores
   );
   res.json(post);
