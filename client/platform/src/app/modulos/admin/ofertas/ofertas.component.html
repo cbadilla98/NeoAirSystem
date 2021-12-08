@@ -12,6 +12,7 @@
                     <input type="number" min="0" max="100" class="form-control" id="inputFechaVencimiento" formControlName="descuento" placeholder="30">
                     <small id="helpId" class="form-text text-muted">Porcentaje de descuento</small>
                 </div>
+                <hr>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-4 text-center">
                         <button type="submit" class="btn btn-secondary pr-3 " id="btnEditar" hidden style="background-color: '#16697A'; color: #fff;">Editar</button>
@@ -25,7 +26,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <h5>Rutas</h5>
+                <h5>Tiquetes disponibles</h5>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -48,6 +49,33 @@
                                 <a (click)="verRegistro(ruta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
                             </td>
                         </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <h5>Ofertas</h5>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Fecha de creacion</th>
+                            <th scope="col">Fecha de vencimiento</th>
+                            <th scope="col">Descuento</th>
+                            <th scope="col">Tiquete</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let oferta of ofertas">
+                            <td>{{oferta.fechaCreacion | date:'dd-MM-YYYY'}}</td>
+                            <td>{{oferta.fechaVencimiento | date:'dd-MM-YYYY'}}</td>
+                            <!-- <td>{{horario.fechaHoraLlegada | date:'dd-MM-YYYY h:mm a'}}</td> -->
+                            <td>
+                                <a (click)="delete(oferta._id)" class="btn btn-danger rounded me-2">Eliminar</a>
+                                <a (click)="verRegistro(oferta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
+                            </td> 
+                        </tr>
                     </tbody>
                 </table>
             </div>
