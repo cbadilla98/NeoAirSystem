@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
           if (this.roles == '618b1fb6e2fc485078acfdbd') {
-            this.router.navigate(['inicio']);
+            this.router.navigate(['admin']);
           }
-          if (this.roles === 'admin') {
-            this.router.navigate(['/dashboard/profile']);
+          if (this.roles === '618b2004e2fc485078acfdbf') {
+            this.router.navigate(['inicio']);
           }
           console.log(this.roles, 'this.roles');
         } else {
