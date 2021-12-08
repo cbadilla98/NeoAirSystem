@@ -14,6 +14,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 import { AvionesFormComponent } from './aviones-form/aviones-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TiqueteComponent } from './tiquete/tiquete.component';
+import { TiqueteFormComponent } from './tiquete-form/tiquete-form.component';
 
 
 
@@ -26,7 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AvionesComponent,
     UsuarioFormComponent,
     TipoAvionFormComponent,
-    AvionesFormComponent
+    AvionesFormComponent,
+    TiqueteComponent,
+    TiqueteFormComponent
   ],
   imports: [
     CommonModule,

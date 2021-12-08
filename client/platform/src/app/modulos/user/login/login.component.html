@@ -6,24 +6,35 @@
 		<article class="col1">
 			<div class="pad_1">
 				<h2>Ingrese sus datos</h2>
-				<form id="form_1" [formGroup]="postForm" (ngSubmit)="submitForm()">
+				<form *ngIf="!isLoggedIn" (ngSubmit)="f.form.valid && submitForm()" name="form" #f="ngForm" novalidate>
 					
 					<div class="wrapper">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                            <input formControlName="usuario" type="text" class="form-control" aria-describedby="emailHelp">
+                            <label for="usuario" class="form-label">Usuario</label>
+                            <input name="usuario" type="text" class="form-control" [(ngModel)]="form.usuario" required #usuario="ngModel" aria-describedby="emailHelp">
+                            <div class="alert alert-danger" role="alert" *ngIf="usuario.errors && f.submitted">Usuario requerido</div>
                         </div>
 					</div>
 					<div class="wrapper">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-                            <input formControlName="contrasennia" type="password" class="form-control" aria-describedby="emailHelp">
+                            <label for="contrasennia" class="form-label">Contraseña</label>
+                            <input name="contrasennia" type="password" class="form-control" [(ngModel)]="form.contrasennia" required minlength="6" #contrasennia="ngModel" aria-describedby="emailHelp">
+                            <div class="alert alert-danger" role="alert" *ngIf="contrasennia.errors && f.submitted">Contraseña requerida</div>
                         </div>
 				    </div>
 					
 					<div class="wrapper">
 						<button type="submit" class="btn btn-primary">¡A volar!</button>
 					</div>
+                    <div class="form-group">
+                        <div
+                          class="alert alert-danger"
+                          role="alert"
+                          *ngIf="f.submitted && isLoginFailed"
+                        >
+                          Login failed: {{ errorMessage }}
+                        </div>
+                      </div>
 				</form>
 				
 			</div>

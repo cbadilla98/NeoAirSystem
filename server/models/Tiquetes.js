@@ -10,6 +10,10 @@ const TiqueteSchema = new Schema(
         type: Number,
         required: true,
       },
+      salida: {
+        type: String,
+        required: true,
+      },
     destino: {
         type: String,
         required: true,

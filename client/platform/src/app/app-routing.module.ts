@@ -13,6 +13,8 @@ import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.
 import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
 import { LoginComponent } from './modulos/user/login/login.component';
+import { TiqueteComponent } from './modulos/admin/tiquete/tiquete.component';
+import { TiqueteFormComponent } from './modulos/admin/tiquete-form/tiquete-form.component';
 const routes: Routes = [
   {
     //admin
@@ -51,6 +53,12 @@ const routes: Routes = [
       },
       {
         path: 'tipoAvionesForm/:id', component : TipoAvionFormComponent
+      },
+      {
+        path: 'tiqueteForm', component : TiqueteFormComponent
+      },
+      {
+        path: 'tiquete', component : TiqueteComponent
       },
     ],
   },
