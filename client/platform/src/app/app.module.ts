@@ -30,6 +30,7 @@ import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
 import {TiqueteComponent} from './modulos/admin/tiquete/tiquete.component'
 import {TiqueteFormComponent} from './modulos/admin/tiquete-form/tiquete-form.component'
 import { AsientosClaseComponent } from './modulos/admin/asientos-clase/asientos-clase.component';
+import { HomeComponent } from './modulos/user/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { AsientosClaseComponent } from './modulos/admin/asientos-clase/asientos-
     ClaseComponent,
     TiqueteComponent,
     TiqueteFormComponent,
-    AsientosClaseComponent
+    AsientosClaseComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
