@@ -27,6 +27,8 @@ import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.
 import { ClaseComponent } from './modulos/admin/clase/clase.component';
 import { LoginComponent } from './modulos/user/login/login.component';
 import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
+import {TiqueteComponent} from './modulos/admin/tiquete/tiquete.component'
+import {TiqueteFormComponent} from './modulos/admin/tiquete-form/tiquete-form.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
     AvionesFormComponent,
     LoginComponent,
     OfertasComponent,
-    ClaseComponent
+    ClaseComponent,
+    TiqueteComponent,
+    TiqueteFormComponent
   ],
   imports: [
     BrowserModule,

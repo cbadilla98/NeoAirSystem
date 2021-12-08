@@ -16,6 +16,8 @@ import { AvionesFormComponent } from './aviones-form/aviones-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { ClaseComponent } from './clase/clase.component';
+import { TiqueteComponent } from './tiquete/tiquete.component';
+import {TiqueteFormComponent } from './tiquete-form/tiquete-form.component'
 
 
 
@@ -31,7 +33,9 @@ import { ClaseComponent } from './clase/clase.component';
     TipoAvionFormComponent,
     AvionesFormComponent,
     OfertasComponent,
-    ClaseComponent
+    ClaseComponent,
+    TiqueteComponent,
+    TiqueteFormComponent
 
   ],
   imports: [

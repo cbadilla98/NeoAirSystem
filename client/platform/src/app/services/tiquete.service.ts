@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-const BLOG_API_ENDPOINT = `${environment.apiUrl}/tiquete`;
+const BLOG_API_ENDPOINT = `${environment.apiUrl}/tiquetes`;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
