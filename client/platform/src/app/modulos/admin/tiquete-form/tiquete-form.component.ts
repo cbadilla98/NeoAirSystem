@@ -26,7 +26,7 @@ export class TiqueteFormComponent implements OnInit {
     destino: new FormControl('', Validators.required),
     fechaSalida: new FormControl('', Validators.required),
     aviones: new FormControl('', Validators.required),
-    clase: new FormControl('', Validators.required),
+    clases: new FormControl('', Validators.required),
     tipoTiquete: new FormControl('', Validators.required),
     
     
@@ -71,6 +71,7 @@ export class TiqueteFormComponent implements OnInit {
           var jsonAAv=JSON.parse(jsonSAv);
           //Clase
           var jsonSCl=JSON.stringify(data.aviones);
+          console.log(jsonSCl);
           var str=jsonSCl.substring(1,jsonSCl.length-1);
           var jsonJCl=JSON.parse(str);
           var jsonACl=JSON.parse(jsonSCl);
@@ -86,42 +87,41 @@ export class TiqueteFormComponent implements OnInit {
             destino: data.destino,
             fechaSalida: date.toISOString().split('T')[0],
             aviones: this.avionesService.getById(params[jsonJAv._id]),
-            clase: this.clasesService.getById(params[jsonJCl._id]),
+            clases: this.clasesService.getById(params[jsonJCl._id]),
             tipoTiquete: this.tipoTiqueteService.getById(params[jsonJTi._id]),
             
             
             
           });
-          console.log(data.tipoUsuario.toString());
-          console.log(JSON.stringify(data.tipoUsuario));
+          
           var jsonSAv=JSON.stringify(data.aviones);
           
           var str=jsonSAv.substring(1,jsonSAv.length-1);
           var jsonJAv=JSON.parse(str);
           var jsonAAv=JSON.parse(jsonSAv);
-          console.log(str);
-          console.log(jsonAAv[0]);
-          console.log(jsonJAv._id);
-          console.log(this.tiqueteService.getById(jsonJAv._id))
+          
           for(var i = 0; i < jsonJAv.length; i++) {
             var obj = jsonAAv[i];
             console.log(obj._id);
-        }
-          this.labelAviones=jsonJAv.nombre;
-//---------------------------------------Clase---------------------------------
-          var jsonSCl=JSON.stringify(data.clase);
+          }
           
-          var str=jsonSCl.substring(1,jsonSCl.length-1);
+          this.labelAviones=jsonJAv.descripcion;
+//---------------------------------------Clase---------------------------------
+         console.log( jsonJCl.nombre);
+         console.log("AAAAAAAA");
+          var jsonSCl=JSON.stringify( this.clasesService.getById(params[jsonJCl._id]));
+          
+          var str=jsonSCl
+
           var jsonJCl=JSON.parse(str);
           var jsonACl=JSON.parse(jsonSCl);
-          console.log(str);
-          console.log(jsonACl[0]);
-          console.log(jsonJCl._id);
-          console.log(this.tiqueteService.getById(jsonJCl._id))
+          
           for(var i = 0; i < jsonJCl.length; i++) {
             var obj = jsonACl[i];
             console.log(obj._id);
         }
+        console.log(this.clasesService.getById(jsonJCl._id));
+        console.log("CCCCC");
           this.labelClase=jsonJCl.nombre;
 
           //-----------------------------------------TipoTiquete-----------------------
@@ -133,7 +133,7 @@ export class TiqueteFormComponent implements OnInit {
           console.log(str);
           console.log(jsonATi[0]);
           console.log(jsonJTi._id);
-          console.log(this.tiqueteService.getById(jsonJCl._id))
+          console.log(this.tiqueteService.getById(jsonJTi._id))
           for(var i = 0; i < jsonJTi.length; i++) {
             var obj = jsonATi[i];
             console.log(obj._id);
@@ -141,7 +141,7 @@ export class TiqueteFormComponent implements OnInit {
           this.labelTipoTiquete=jsonJTi.nombre;
 
           this.postForm.controls['tipoTiquete'].patchValue(this.tipoTiqueteService.getById(jsonJTi._id),500)
-          this.postForm.controls['clase'].patchValue(this.clasesService.getById(jsonJTi._id),500)
+          this.postForm.controls['clases'].patchValue(this.clasesService.getById(jsonJTi._id),500)
           this.postForm.controls['aviones'].patchValue(this.avionesService.getById(jsonJTi._id),500)
         });
         

@@ -38,7 +38,7 @@
             <label for="exampleInputEmail1" class="form-label">Clase</label>
             <h5 *ngIf="editMode" class="form-label">Esta clase es de tipo: {{labelClase}}</h5>
             <a *ngIf="editMode">Cambiar a:</a>
-            <select class="form-control" formControlName="clase" [compareWith]="compareFn">
+            <select class="form-control" formControlName="clases" [compareWith]="compareFn">
                 <option *ngFor="let item of listaClases"[ngValue]="item" selected="item.id">{{item.nombre}}</option>
             </select>
         </div>
