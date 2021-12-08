@@ -15,6 +15,8 @@ import { DateTimePickerModule } from "@syncfusion/ej2-angular-calendars";
 import { AvionesFormComponent } from './aviones-form/aviones-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './ofertas/ofertas.component';
+import { ClaseComponent } from './clase/clase.component';
+
 
 
 
@@ -28,7 +30,9 @@ import { OfertasComponent } from './ofertas/ofertas.component';
     UsuarioFormComponent,
     TipoAvionFormComponent,
     AvionesFormComponent,
-    OfertasComponent
+    OfertasComponent,
+    ClaseComponent
+
   ],
   imports: [
     CommonModule,

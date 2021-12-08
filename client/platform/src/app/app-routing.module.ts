@@ -14,6 +14,7 @@ import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avi
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
 import { LoginComponent } from './modulos/user/login/login.component';
 import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
+import { ClaseComponent } from './modulos/admin/clase/clase.component';
 const routes: Routes = [
   {
     //admin
@@ -54,8 +55,16 @@ const routes: Routes = [
         path: 'tipoAvionesForm/:id', component : TipoAvionFormComponent
       },
       {
+
         path: 'ofertas', component : OfertasComponent
-      }
+      },
+      {
+        path: 'clases', component : ClaseComponent
+      },
+      {
+        path: 'clases/:id', component : ClaseComponent
+      },
+
     ],
   },
   //usuario
