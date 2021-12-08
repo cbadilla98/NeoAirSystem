@@ -12,6 +12,13 @@ module.exports.getById = async (req, res, next) => {
   res.json(post);
 };
 
+module.exports.getFiltered = async (req, res, next) => {
+  const id = req.params.id;
+  const post = await FacturaModel.filter({ _id: id})
+  .populate("Tiquetes").populate("Usuario").exec();
+  res.json(post);
+};
+
 module.exports.create = (req, res, next) => {
   const { name, content } = req.body;
   const post = new FacturaModel({ ...req.body });
