@@ -111,6 +111,7 @@ export class RutasComponent implements OnInit {
     if (this.formRutas.valid) {
       if (!this.editMode) {
         this.rutasService.create(this.formRutas.value).subscribe((data) => {
+          console.log(this.formRutas.value)
           Swal.fire({
             icon: 'success',
             title: 'Ruta agregada satisfactoriamente',
@@ -122,7 +123,11 @@ export class RutasComponent implements OnInit {
 
           }
         });
+        // setTimeout(() => {
+        //   window.location.reload();
+        // },1000)
       } else {
+        this.formRutas.controls['duracion'].setValue(this.formRutas.value.duracion);
         this.rutasService
           .updateRutas(this.post._id, this.formRutas.value)
           .subscribe((data) => {
@@ -137,6 +142,9 @@ export class RutasComponent implements OnInit {
 
             }
           });
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000)
       }
     } else {
       Swal.fire({

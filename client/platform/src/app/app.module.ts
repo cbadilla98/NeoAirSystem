@@ -26,6 +26,7 @@ import { AvionesComponent } from './modulos/admin/aviones/aviones.component';
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
 import { ClaseComponent } from './modulos/admin/clase/clase.component';
 import { LoginComponent } from './modulos/user/login/login.component';
+import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { LoginComponent } from './modulos/user/login/login.component';
     AvionesComponent,
     AvionesFormComponent,
     LoginComponent,
+    OfertasComponent,
     ClaseComponent
   ],
   imports: [

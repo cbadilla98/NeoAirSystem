@@ -13,12 +13,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  postForm = new FormGroup({
+  form: any = {
+    usuario: null,
+    contrasennia: null,
+  };
+  // postForm = new FormGroup({
     
-    usuario: new FormControl('', Validators.required),
-    contrasennia: new FormControl('', Validators.required),
+  //   usuario: new FormControl('', Validators.required),
+  //   contrasennia: new FormControl('', Validators.required),
     
-  });
+  // });
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -38,9 +42,9 @@ export class LoginComponent implements OnInit {
     }
   }
   submitForm() {
-   
+    const { usuario, contrasennia } = this.form;
 
-    this.loginService.login(this.postForm.get("usuario")?.value, this.postForm.get("contrasennia")?.value).subscribe(
+    this.loginService.login(usuario, contrasennia).subscribe(
       (data) => {
         console.log(data);
         if (data.success === true) {
