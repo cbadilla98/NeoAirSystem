@@ -30,7 +30,7 @@ export class TiqueteComponent implements OnInit {
     )
   }
   delete(id: string): void {
-    if (confirm('¿Esta seguro que quiere borrar este post?')) {
+    if (confirm('¿Esta seguro que quiere borrar este tiquete?')) {
       this.tiquetesService.deleteTiquete(id).subscribe((res: any) => {
         this.tiquetes = this.tiquetes.filter((post: any) => post._id !== id);
       });
@@ -38,6 +38,6 @@ export class TiqueteComponent implements OnInit {
   }
 
   editar(id : String){
-    this.router.navigate(['tiquete/' + id])
+    this.router.navigate(['tiqueteForm/' + id])
   }
 }

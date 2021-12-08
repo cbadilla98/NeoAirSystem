@@ -71,6 +71,9 @@ const routes: Routes = [
         path: 'tiqueteForm', component : TiqueteFormComponent
       },
       {
+        path: 'tiqueteForm/:id', component : TiqueteFormComponent
+      },
+      {
         path: 'tiquete', component : TiqueteComponent
       },
       {
