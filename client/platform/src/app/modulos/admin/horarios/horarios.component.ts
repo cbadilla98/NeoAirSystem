@@ -116,7 +116,7 @@ export class HorariosComponent implements OnInit {
         this.formHorario.controls['rutas'].setValue(ruta);
         this.formHorario.controls['fechaHoraSalida'].setValue(horarioInicialFormated);
         this.formHorario.controls['fechaHoraLlegada'].setValue(horarioFinalFormated);
-
+        
         this.horarioService
           .updateHorario(this.post._id, this.formHorario.value)
           .subscribe((data) => {
@@ -204,6 +204,10 @@ export class HorariosComponent implements OnInit {
         fechaHoraSalida: data.fechaHoraSalida,
         rutas: data.rutas[0]._id,
       });
+      // this.ruta = data.rutas[0]._id
+      this._idRuta = data.rutas[0]._id
+      this.formHorario.controls['fechaHoraSalida'].setValue(data.fechaHoraSalida);
+
       $('#btnEditar').prop("hidden", false);
       $('#btnCancelar').prop("hidden", false);
       $('#divBtnNuevo').prop("hidden", true);

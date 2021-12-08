@@ -7,6 +7,10 @@
                     <input type="date" class="form-control" id="inputFechaVencimiento" formControlName="fechaVencimiento">
                     <small id="helpId" class="form-text text-muted">Fecha de vencimiento</small>
                 </div>
+                <div class="col-md-12 mb-3">
+                    <label for="inputTiquete" class="form-label" id="inputTiqueteLabel">Seleccione un tiquete*</label>
+                    <input type="text" class="form-control" id="inputTiquete" formControlName="tiquetes" readonly value="{{tiquetes2}}">
+                </div>
                 <div class="col-md-6 mb-3">
                     <label for="inputAction" class="form-label" id="inputDescuentoLabel">Descuento %</label>
                     <input type="number" min="0" max="100" class="form-control" id="inputFechaVencimiento" formControlName="descuento" placeholder="30">
@@ -32,23 +36,23 @@
                         <tr>
                             <th scope="col">Salida</th>
                             <th scope="col">Destino</th>
-                            <th scope="col">Duracion</th>
+                            <th scope="col">Fecha Salida</th>
                             <th scope="col">Avion</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr *ngFor="let ruta of rutas">
-                            <td>{{ruta.salida}}</td>
-                            <td>{{ruta.destino}}</td>
-                            <td>{{ruta.duracion | date:'h:mm'}}</td>
-                            <td *ngIf="ruta.aviones[0] !== undefined && ruta.aviones[0] !== null">
-                                {{ruta.aviones[0].descripcion}}</td>
-                            <td>
-                                <a (click)="delete(ruta._id)" class="btn btn-danger rounded me-2">Eliminar</a>
-                                <a (click)="verRegistro(ruta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
+                        <tr *ngFor="let tiquete of tiquetesDisponibles">
+                            <td>{{tiquete.salida}}</td>
+                            <td>{{tiquete.destino}}</td>
+                            <td>{{tiquete.fechaSalida | date:'dd-MM-YYYY h:mm a'}}</td>
+                            <td *ngIf="tiquete.aviones[0] !== undefined && tiquete.aviones[0] !== null">
+                                {{tiquete.aviones[0].descripcion}}
                             </td>
-                        </tr> -->
+                            <td>
+                                <a (click)="verTiquete(tiquete._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Selecccionar</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -70,7 +74,8 @@
                         <tr *ngFor="let oferta of ofertas">
                             <td>{{oferta.fechaCreacion | date:'dd-MM-YYYY'}}</td>
                             <td>{{oferta.fechaVencimiento | date:'dd-MM-YYYY'}}</td>
-                            <!-- <td>{{horario.fechaHoraLlegada | date:'dd-MM-YYYY h:mm a'}}</td> -->
+                            <td>{{oferta.descuento}}</td>
+                            <td>{{oferta.tiquetes[0].salida}} - {{oferta.tiquetes[0].destino}} </td>
                             <td>
                                 <a (click)="delete(oferta._id)" class="btn btn-danger rounded me-2">Eliminar</a>
                                 <a (click)="verRegistro(oferta._id)" class="btn rounded" style="background-color: '#16697A'; color: #fff;">Ver</a>
