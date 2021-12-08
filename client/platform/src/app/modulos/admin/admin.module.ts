@@ -18,7 +18,9 @@ import { OfertasComponent } from './ofertas/ofertas.component';
 import { ClaseComponent } from './clase/clase.component';
 import { TiqueteComponent } from './tiquete/tiquete.component';
 import {TiqueteFormComponent } from './tiquete-form/tiquete-form.component';
+import { AsientosClaseComponent } from './asientos-clase/asientos-clase.component'
 import { TipoTiqueteComponent } from './tipo-tiquete/tipo-tiquete.component'
+
 
 
 
@@ -37,6 +39,7 @@ import { TipoTiqueteComponent } from './tipo-tiquete/tipo-tiquete.component'
     ClaseComponent,
     TiqueteComponent,
     TiqueteFormComponent,
+    AsientosClaseComponent,
     TipoTiqueteComponent
 
   ],

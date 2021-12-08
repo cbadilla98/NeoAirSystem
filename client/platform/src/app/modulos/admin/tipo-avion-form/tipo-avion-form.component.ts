@@ -20,9 +20,6 @@ export class TipoAvionFormComponent implements OnInit {
     marca: new FormControl('', Validators.required),
     modelo: new FormControl('', Validators.required),
     annio: new FormControl('', Validators.required),
-    cantPasajeros: new FormControl('', Validators.required),
-    cantFilas: new FormControl('', Validators.required),
-    cantAsientosPorFila: new FormControl('', Validators.required),
   });
 
   get marca() {
@@ -34,15 +31,7 @@ export class TipoAvionFormComponent implements OnInit {
   get annio() {
     return this.postForm.get('annio');
   }
-  get cantPasajeros() {
-    return this.postForm.get('cantPasajeros');
-  }
-  get cantFilas() {
-    return this.postForm.get('cantFilas');
-  }
-  get cantAsientosPorFila() {
-    return this.postForm.get('cantAsientosPorFila');
-  }
+
 
   constructor(
     private tipoAvionesService: TipoAvionesService,
@@ -62,10 +51,7 @@ export class TipoAvionFormComponent implements OnInit {
           this.postForm.setValue({
             marca: data.marca,
             modelo: data.modelo,
-            annio: data.annio,
-            cantPasajeros: data.cantPasajeros,
-            cantFilas: data.cantFilas,
-            cantAsientosPorFila: data.cantAsientosPorFila,
+            annio: data.annio
 
           });
         });
