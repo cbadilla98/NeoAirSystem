@@ -24,6 +24,7 @@ import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avi
 import { HorariosComponent } from './modulos/admin/horarios/horarios.component';
 import { AvionesComponent } from './modulos/admin/aviones/aviones.component';
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
+import { ClaseComponent } from './modulos/admin/clase/clase.component';
 import { LoginComponent } from './modulos/user/login/login.component';
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LoginComponent } from './modulos/user/login/login.component';
     HorariosComponent,
     AvionesComponent,
     AvionesFormComponent,
-    LoginComponent
+    LoginComponent,
+    ClaseComponent
   ],
   imports: [
     BrowserModule,
