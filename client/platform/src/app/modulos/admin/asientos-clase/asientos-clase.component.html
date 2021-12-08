@@ -1,0 +1,38 @@
+<body class="m-0 row ">
+    
+
+    <div>
+        <h4>Administrar <b> Clases</b> </h4>
+    </div>
+<hr>
+    
+
+    <div class="mt-2 col-12 col-sm-6 ">
+        <table class="table table-striped table-hover mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Cant Pasajeros</th>
+                    <th scope="col">Cant Filas</th>
+                    <th scope="col">Cant Asientos X Fila</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of asientosClase">
+                    <td>{{item.cantPasajeros}}</td>
+                    <td>{{item.cantFilas}}</td>
+                    <td>{{item.cantAsientosPorFila}}</td>
+    
+                    <!-- <td clase="">
+                        <a  (click)="editar(clase._id)" class="btn btn-primary rounded me-2"
+                            data-toggle="modal">Editar</a>
+                        <a (click)="delete(clase._id)" class="delete btn btn-danger rounded"
+                            data-toggle="modal">Eliminar</a>
+                    </td>    -->
+    
+                                      
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+</body>

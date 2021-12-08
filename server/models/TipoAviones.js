@@ -18,18 +18,7 @@ const TipoAvionesSchema = new Schema(
         type: Boolean,
         default: "1",
       },
-      cantPasajeros: {
-        type: Number,
-        required: true,
-      },
-      cantFilas: {
-        type: Number,
-        required: true,
-      },
-      cantAsientosPorFila: {
-        type: Number,
-        required: true,
-      },
+      
 },
   { timestamps: true }
 );

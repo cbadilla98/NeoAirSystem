@@ -17,6 +17,7 @@ import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
 import { ClaseComponent } from './modulos/admin/clase/clase.component';
 import { TiqueteComponent } from './modulos/admin/tiquete/tiquete.component'
 import { TiqueteFormComponent } from './modulos/admin/tiquete-form/tiquete-form.component';
+import { AsientosClaseComponent } from './modulos/admin/asientos-clase/asientos-clase.component';
 const routes: Routes = [
   {
     //admin
@@ -71,6 +72,9 @@ const routes: Routes = [
       },
       {
         path: 'tiquete', component : TiqueteComponent
+      },
+      {
+        path: 'asientosClase', component : AsientosClaseComponent
       },
 
     ],

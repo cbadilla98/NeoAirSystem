@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { ClaseComponent } from './clase/clase.component';
 import { TiqueteComponent } from './tiquete/tiquete.component';
-import {TiqueteFormComponent } from './tiquete-form/tiquete-form.component'
+import {TiqueteFormComponent } from './tiquete-form/tiquete-form.component';
+import { AsientosClaseComponent } from './asientos-clase/asientos-clase.component'
 
 
 
@@ -35,7 +36,8 @@ import {TiqueteFormComponent } from './tiquete-form/tiquete-form.component'
     OfertasComponent,
     ClaseComponent,
     TiqueteComponent,
-    TiqueteFormComponent
+    TiqueteFormComponent,
+    AsientosClaseComponent
 
   ],
   imports: [

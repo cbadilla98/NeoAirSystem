@@ -25,29 +25,7 @@
                     <span *ngIf="annio?.invalid" class="text-danger">Requerido</span>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="inputCantPasajeros" class="form-label">Cantidad de Pasajeros</label>
-                <div class="col-md-2">
-                    <input formControlName="cantPasajeros" type="number" class="form-control" aria-describedby="emailHelp">
-                    <span *ngIf="cantPasajeros?.invalid" class="text-danger">Requerido</span>
-                </div>
-            </div>
-    
-            <div class="mb-3">
-                <label for="inputCantFilas" class="form-label">Cantidad de Filas</label>
-                <div class="col-md-2">
-                    <input formControlName="cantFilas" type="number" class="form-control" aria-describedby="emailHelp">
-                    <span *ngIf="cantFilas?.invalid" class="text-danger">Requerido</span>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="inputCantAsientosFila" class="form-label">Cantidad asientos por fila</label>
-                <div class="col-md-2">
-                    <input formControlName="cantAsientosPorFila" type="number" class="form-control"
-                        aria-describedby="emailHelp">
-                        <span *ngIf="cantAsientosPorFila?.invalid" class="text-danger">Requerido</span>
-                </div>
-            </div>
+           
     
             <button type="submit" class="btn btn-primary">Listo</button>
         </form>
