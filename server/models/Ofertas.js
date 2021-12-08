@@ -8,7 +8,8 @@ const OfertasClaseSchema = new Schema(
       },
     fechaCreacion: {
         type: Date,
-        required: true,
+        // required: true,
+        default: Date.now
       },
     fechaVencimiento: {
         type: Date,

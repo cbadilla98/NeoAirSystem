@@ -43,23 +43,36 @@ export class HorariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.rutasService.get().subscribe((rutas) => {
-      this.rutasDisponibles = rutas
+      // this.rutasDisponibles = rutas
+      var i = 0;
+      for (const ruta of rutas) {
+        if (ruta.aviones[0] != undefined) {
+          this.rutasDisponibles[i] = ruta
+          i++;
+        }
+      }
     })
     this.getHorariosFromAPI()
   }
 
 
   sumarFecha(fecha: any, hora: any, minutos: any): any {
+    if(this.editMode){
+      // console.log(new Date())
+      fecha = new Date(fecha)
+    }
     var nuevaHora = fecha.getHours() + hora;
     var nuevoMinuto = fecha.getMinutes() + minutos;
     fecha.setHours(nuevaHora, nuevoMinuto);
     const datepipe: DatePipe = new DatePipe('en-US')
-    return datepipe.transform(fecha, 'M/d/yy, h:mm a')
+    // return datepipe.transform(fecha, 'M/d/yy, h:mm a')
+    return fecha
   }
   get rutas() {
     return this.formHorario.get('rutas');
   }
   submitForm() {
+    // console.log(typeof this.formHorario.value.fechaHoraSalida)
     if (this.formHorario.valid && $('#inputRuta').val() != '') {
 
       if (!this.editMode) {
@@ -89,10 +102,14 @@ export class HorariosComponent implements OnInit {
 
           }
         });
+        setTimeout(() => {
+          window.location.reload();
+        },1000)
       } else {
-        const datepipe: DatePipe = new DatePipe('en-US')
+        var horarioInicial = this.formHorario.value.fechaHoraSalida
         var arrayTiempo = this.formattedDate.split(':');
-        let horarioInicialFormated = datepipe.transform((this.formHorario.value.fechaHoraSalida))
+        const datepipe: DatePipe = new DatePipe('en-US')
+        let horarioInicialFormated = datepipe.transform(horarioInicial, 'M/d/yy, h:mm a')
         let horarioFinalFormated = this.sumarFecha(horarioInicialFormated, Math.abs(arrayTiempo[0]), Math.abs(arrayTiempo[1]))
         let ruta = this._idRuta;
         this.formHorario.addControl('fechaHoraLlegada', new FormControl(horarioFinalFormated))
@@ -105,7 +122,7 @@ export class HorariosComponent implements OnInit {
           .subscribe((data) => {
             Swal.fire({
               icon: 'success',
-              title: 'Horario agregado satisfactoriamente',
+              title: 'Horario editado satisfactoriamente',
             })
             this.getHorariosFromAPI();
             try {
@@ -114,6 +131,10 @@ export class HorariosComponent implements OnInit {
 
             }
           });
+          setTimeout(() => {
+            window.location.reload();
+          },1000)
+
       }
     } else {
       Swal.fire({
@@ -177,6 +198,8 @@ export class HorariosComponent implements OnInit {
       this.post = data;
       this._idHorario = data._id;
       console.log(this.post)
+      // const datepipe: DatePipe = new DatePipe('en-US')
+      // this.formattedDate = datepipe.transform(data.fechaHoraSalida, 'M/d/yy, h:mm a')
       this.formHorario.setValue({
         fechaHoraSalida: data.fechaHoraSalida,
         rutas: data.rutas[0]._id,

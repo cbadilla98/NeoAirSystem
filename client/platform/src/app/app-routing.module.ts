@@ -13,8 +13,8 @@ import { UsuarioFormComponent } from './modulos/admin/usuario-form/usuario-form.
 import { TipoAvionFormComponent } from './modulos/admin/tipo-avion-form/tipo-avion-form.component';
 import { AvionesFormComponent } from './modulos/admin/aviones-form/aviones-form.component';
 import { LoginComponent } from './modulos/user/login/login.component';
-import { TiqueteComponent } from './modulos/admin/tiquete/tiquete.component';
-import { TiqueteFormComponent } from './modulos/admin/tiquete-form/tiquete-form.component';
+import { OfertasComponent } from './modulos/admin/ofertas/ofertas.component';
+import { ClaseComponent } from './modulos/admin/clase/clase.component';
 const routes: Routes = [
   {
     //admin
@@ -55,11 +55,16 @@ const routes: Routes = [
         path: 'tipoAvionesForm/:id', component : TipoAvionFormComponent
       },
       {
-        path: 'tiqueteForm', component : TiqueteFormComponent
+
+        path: 'ofertas', component : OfertasComponent
       },
       {
-        path: 'tiquete', component : TiqueteComponent
+        path: 'clases', component : ClaseComponent
       },
+      {
+        path: 'clases/:id', component : ClaseComponent
+      },
+
     ],
   },
   //usuario
