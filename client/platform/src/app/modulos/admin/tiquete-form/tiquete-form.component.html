@@ -1,1 +1,60 @@
-<p>tiquete-form works!</p>
+<body class="m-0 row justify-content-center">
+    <h1 *ngIf="!editMode">Agregar tiquete</h1>
+    <h1 *ngIf="editMode">Editar tiquete</h1>
+
+    <div class="col-10">
+<div class="mt-5">
+    <form [formGroup]="postForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input formControlName="precio" type="number" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="salida" class="form-label">Salida</label>
+            <input formControlName="salida" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="destino" class="form-label">Destino</label>
+            <input formControlName="destino" type="text" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="fechaSalida" class="form-label">Fecha de salida</label>
+            <input formControlName="fechaSalida" type="date" class="form-control" aria-describedby="emailHelp">
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Aviones</label>
+            <h5 *ngIf="editMode" class="form-label">Este tiquete tiene el avión: {{labelAviones}}</h5>
+            <a *ngIf="editMode">Cambiar a:</a>
+            <select class="form-control" formControlName="aviones" [compareWith]="compareFn">
+                <option *ngFor="let item of listaAviones"[ngValue]="item" selected="item.id">{{item.descripcion}}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Clase</label>
+            <h5 *ngIf="editMode" class="form-label">Esta clase es de tipo: {{labelClase}}</h5>
+            <a *ngIf="editMode">Cambiar a:</a>
+            <select class="form-control" formControlName="clase" [compareWith]="compareFn">
+                <option *ngFor="let item of listaClases"[ngValue]="item" selected="item.id">{{item.nombre}}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tipo de tiquete</label>
+            <h5 *ngIf="editMode" class="form-label">Este tiquete es de tipo: {{labelTipoTiquete}}</h5>
+            <a *ngIf="editMode">Cambiar a:</a>
+            <select class="form-control" formControlName="tipoTiquete" [compareWith]="compareFn">
+                <option *ngFor="let item of listaTipoTiquetes"[ngValue]="item" selected="item.id">{{item.nombre}}</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a (click)="cancelar()" class="edit btn btn-danger rounded m-2"data-toggle="modal">Cancelar</a>
+    </form>
+</div>
+</div>
+
+</body>

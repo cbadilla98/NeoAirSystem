@@ -38,6 +38,6 @@ export class TiqueteComponent implements OnInit {
   }
 
   editar(id : String){
-    this.router.navigate(['tiquete/' + id])
+    this.router.navigate(['tiquetes/' + id])
   }
 }
