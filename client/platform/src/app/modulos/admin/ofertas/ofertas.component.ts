@@ -9,15 +9,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class OfertasComponent implements OnInit {
 
   constructor() { }
+  ofertas = <any>[];
+  tiquetesDisponibles = <any>[];
   formOfertas = new FormGroup({
     fechaVencimiento: new FormControl('', [Validators.required]),
     descuento: new FormControl('', [Validators.required]),
-
-
-    // salida: new FormControl('', [Validators.required]),
-    // destino: new FormControl('', [Validators.required]),
-    // duracion: new FormControl('', Validators.required),
-    // aviones: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {
@@ -26,5 +22,13 @@ export class OfertasComponent implements OnInit {
   submitForm(): void {
 
   }
-  cancelar() {}
+  cancelar() { }
+
+  delete(id: any) {
+
+  }
+  post: any = {};
+  verRegistro(id: any) {
+    
+  }
 }

@@ -38,16 +38,24 @@ export class AvionesFormComponent implements OnInit {
   editMode = false;
   lista: any = [];
   listaAviones: any =[];
+  listatipo: any=[];
+  id: string = "";
   ngOnInit(): void {
     this.tipoAvionesService.get().subscribe((lista) => {this.lista  = lista});
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
+        this.id = params['id'];
         this.editMode = true;
         this.avionesService.getById(params['id']).subscribe((data) => {
+
           this.listaAviones = data;
+          this.listatipo = this.listaAviones.tipoAviones;
+          this.labelTipoAvion = (this.listatipo[0].marca) + " - " + (this.listatipo[0].modelo);
+
           this.postForm.setValue({
-            
+            tipoAviones: data.tipoAviones,
             descripcion: this.listaAviones.descripcion
+            
           });
         });
       }
@@ -66,15 +74,22 @@ export class AvionesFormComponent implements OnInit {
 
   submitForm() {
     if (this.postForm.valid) {
+
       if (this.editMode) {
+
+        console.log(this.postForm.value)
         this.avionesService
-          .edit(this.lista._id, this.postForm.value)
+          .edit(this.id, this.postForm.value)
           .subscribe((data) => {
             Swal.fire({
+
               icon: 'success',
               title: 'Modificado Correctamente',
+
             })
+
             this.navigateToList();
+
           });
       } else {
         console.log(this.postForm.get("tipoAvion")?.value['_id']);
