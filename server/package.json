@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@walmon/greenpay-sdk-backend": "^0.2.1",
+    "@walmon/greenpay-sdk-core": "^0.2.1",
     "bcrypt": "^5.0.1",
     "bcrypt-nodejs": "0.0.3",
     "chalk": "^4.1.2",

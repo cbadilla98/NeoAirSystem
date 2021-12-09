@@ -51,12 +51,7 @@ export class HomeComponent implements OnInit {
         console.log(data);
         if (data.success === true) {
           console.log(data.success, 'data.success');
-          data.roles = data.usuario.role;
-          this.tokenStorage.saveToken(data.token);
-          this.tokenStorage.saveUser(data);
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-          this.roles = this.tokenStorage.getUser().roles;
+          
           this.router.navigate(['admin']);
           
           

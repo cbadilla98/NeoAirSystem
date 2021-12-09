@@ -54,7 +54,7 @@
 					<div class="wrapper">
 						<label for="fechaSalida" class="form-label">Fecha de salida:</label>
                             <input name="fechaSalida" type="date" class="form-control input input2" [(ngModel)]="form.fechaSalida" required #fechaSalida="ngModel" aria-describedby="emailHelp">
-                            <div class="alert alert-danger" role="alert" *ngIf="fechaSalida.errors && f.submitted">Debe ingresar un destino</div>
+                            <div class="alert alert-danger" role="alert" *ngIf="fechaSalida.errors && f.submitted">Debe ingresar una fecha</div>
 					</div>
 					<br/>
 					<div class="wrapper">
