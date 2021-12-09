@@ -39,6 +39,6 @@ export class TiqueteBusquedaComponent implements OnInit {
   }
 
   comprar(id : String){
-    this.router.navigate(['tiqueteForm/' + id])
+    this.router.navigate(['tiqueteDetalle/' + id])
   }
 }

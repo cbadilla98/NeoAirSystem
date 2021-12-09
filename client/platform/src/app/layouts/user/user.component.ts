@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-      this.usuario=this.tokenStorage.getUser.name;
+      this.usuario=this.tokenStorage.getUser().name;
     }
   }
   logout(): void {}
