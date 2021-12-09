@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsientosClaseService } from '../../../services/admin-asientosClase/asientosClase.service';
-import { ClasesService} from '../../../services/admin-clases/clases.service';
+import { ClasesService } from '../../../services/admin-clases/clases.service';
 import { TipoAvionesService } from 'src/app/services/admin-tipoAviones/tipoAviones.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -16,15 +16,15 @@ export class AsientosClaseComponent implements OnInit {
 
   labelTipoAvion = "";
   labelClase = "";
-  
+
   constructor(
     private asientosClaseService: AsientosClaseService,
     private clasesService: ClasesService,
     private tipoAvionesService: TipoAvionesService,
     private router: Router,
     private activeRoute: ActivatedRoute
-    ) { 
-    
+  ) {
+
   }
 
   postForm = new FormGroup({
@@ -50,23 +50,23 @@ export class AsientosClaseComponent implements OnInit {
   asientos = <any>[];
   clases = <any>[];
   tipoAviones = <any>[];
-  post : any = {};
+  post: any = {};
   ngOnInit(): void {
-    
-    this.asientosClaseService.get().subscribe((response)=>{
+
+    this.asientosClaseService.get().subscribe((response) => {
       this.asientos = response;
-    },(error)=>{
-      console.log('Error:',error);
-    } 
+    }, (error) => {
+      console.log('Error:', error);
+    }
     )
-    this.clasesService.get().subscribe((clasesService)=>{this.clases = clasesService})
-    this.tipoAvionesService.get().subscribe((tipoAvionesService)=>{this.tipoAviones = tipoAvionesService})
+    this.clasesService.get().subscribe((clasesService) => { this.clases = clasesService })
+    this.tipoAvionesService.get().subscribe((tipoAvionesService) => { this.tipoAviones = tipoAvionesService })
 
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
         this.editMode = true;
 
-        this.asientosClaseService.getById(params['id']).subscribe((response)=>{
+        this.asientosClaseService.getById(params['id']).subscribe((response) => {
 
           this.post = response;
           this.labelTipoAvion = (this.post.tipoAviones[0].marca) + " - " + (this.post.tipoAviones[0].modelo);
@@ -79,14 +79,14 @@ export class AsientosClaseComponent implements OnInit {
             clase: ""
 
           });
-          
+
         })
-        
+
       }
     });
   }
 
-  editar(id : String){
+  editar(id: String) {
     this.router.navigate(['asientosClase/' + id])
   }
 
@@ -102,16 +102,18 @@ export class AsientosClaseComponent implements OnInit {
         this.asientosClaseService.delete(id).subscribe((res: any) => {
           this.asientos = this.asientos.filter((post: any) => post._id !== id);
         });;
+        this.editar("");
+        this.postForm.reset();
         Swal.fire({
           title: "Eliminado correctamente!",
           icon: 'success',
         })
       }
     })
-    
+
   }
 
-  
+
 
   submitForm() {
     if (this.postForm.valid) {
@@ -138,7 +140,7 @@ export class AsientosClaseComponent implements OnInit {
           window.location.reload();
         });
       }
-    }else{
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'No se permiten espacios en blanco',
