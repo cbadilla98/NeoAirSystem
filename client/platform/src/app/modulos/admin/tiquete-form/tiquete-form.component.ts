@@ -141,8 +141,8 @@ export class TiqueteFormComponent implements OnInit {
           this.labelTipoTiquete=jsonJTi.nombre;
 
           this.postForm.controls['tipoTiquete'].patchValue(this.tipoTiqueteService.getById(jsonJTi._id),500)
-          this.postForm.controls['clases'].patchValue(this.clasesService.getById(jsonJTi._id),500)
-          this.postForm.controls['aviones'].patchValue(this.avionesService.getById(jsonJTi._id),500)
+          this.postForm.controls['clases'].patchValue(this.clasesService.getById(jsonJCl._id),500)
+          this.postForm.controls['aviones'].patchValue(this.avionesService.getById(jsonJAv._id),500)
         });
         
       }else{

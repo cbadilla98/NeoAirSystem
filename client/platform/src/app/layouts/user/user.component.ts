@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,6 +14,7 @@ export class UserComponent implements OnInit {
   roles: string = '';
   constructor(
     private tokenStorage: TokenStorageService,
+    private router:Router,
   ) {
     
    }
@@ -24,6 +26,10 @@ export class UserComponent implements OnInit {
       this.usuario=this.tokenStorage.getUser().name;
     }
   }
-  logout(): void {}
+  logout(): void {
+    this.isLoggedIn = false;
+    this.tokenStorage.removeUser();
+    this.router.navigate(['login'])
+  }
 
 }

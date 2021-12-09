@@ -25,7 +25,7 @@ const routes: Routes = [
     //admin
     path: '', component: MantenimientosComponent,
     children: [
-      { path: '', redirectTo: '/mantenimientos', pathMatch: 'full' },
+      { path: '', redirectTo: '/inicio', pathMatch: 'full' },
       {
         path: 'admin', component : AdminComponent,
       },
@@ -91,7 +91,7 @@ const routes: Routes = [
   {
     path: '', component: UserComponent,
     children: [
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: '', redirectTo: '/inicio', pathMatch: 'full' },
       { path: 'inicio', component: HomeComponent},
       { path: 'login', component: LoginComponent},
       { path: 'inicio/busqueda', component: TiqueteBusquedaComponent},

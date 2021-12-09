@@ -22,7 +22,7 @@ import {Clases} from '../../../models/clases'
 export class TiqueteDetalleComponent implements OnInit {
 
   postForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    nombre: new FormControl('', [Validators.required]),
     precio: new FormControl('', [Validators.required]),
     salida: new FormControl('', Validators.required),
     destino: new FormControl('', Validators.required),
@@ -38,7 +38,7 @@ export class TiqueteDetalleComponent implements OnInit {
     
     salida: new FormControl('', Validators.required),
     destino: new FormControl('', Validators.required),
-
+    tiquete: new FormControl('', Validators.required),
     fechaSalida: new FormControl('', Validators.required),
     fechaRegreso:new FormControl('', Validators.required),
     
@@ -53,7 +53,7 @@ export class TiqueteDetalleComponent implements OnInit {
   labelAviones=''
   labelClase=''
   labelTipoTiquete=''
-  
+  idTiquete="";
   
   lista:TipoUsuario[]= [];
   listaAviones:Aviones[]=[];
@@ -81,7 +81,7 @@ export class TiqueteDetalleComponent implements OnInit {
     this.activeRoute.params.subscribe((params) => {
       if (params['id']) {
         this.editMode = true;
-
+        this.idTiquete=params['id'];
         this.tiqueteService.getById(params['id']).subscribe((data) => {
           var date= new Date(data.fechaSalida)
           this.post = data;
@@ -217,7 +217,9 @@ export class TiqueteDetalleComponent implements OnInit {
     this.postFormFactura.controls['descuento'].patchValue(0,500)
     this.postFormFactura.controls['fechaCompra'].patchValue(today.getDate(),500)
     var imp=  parseFloat(this.postForm.get("precio")?.value)*0.13;
-    this.postFormFactura.controls['iva'].patchValue(imp,500)
+    this.postFormFactura.controls['iva'].patchValue(imp,500);
+    this.postFormFactura.controls['tiquete'].patchValue(this.tiqueteService.getById(this.idTiquete),500);
+    
     if (this.postFormFactura.valid) {
       
       
