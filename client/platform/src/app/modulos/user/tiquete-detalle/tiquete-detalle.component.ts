@@ -222,11 +222,13 @@ export class TiqueteDetalleComponent implements OnInit {
     
     if (this.postFormFactura.valid) {
       
-      
+      if(confirm('¿Esta seguro que quiere comprar el ticket?')){
         console.log("paso por aca 4");
         this.facturaService.create(this.postFormFactura.value).subscribe((data) => {
           this.navigateToList();
         });
+      }
+        
       
     }
   }
