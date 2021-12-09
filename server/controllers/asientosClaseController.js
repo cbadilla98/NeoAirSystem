@@ -2,13 +2,14 @@ const AsientosClaseModel = require("../models/AsientosClase");
 
 
 module.exports.get = async (req, res, next) => {
-    const posts = await AsientosClaseModel.find().populate("Clase").populate("TipoAviones").exec();
+    const posts = await AsientosClaseModel.find().populate("clase").populate("tipoAviones").exec();
+   
     res.json(posts);
 };
 
 module.exports.getById = async (req, res, next) => {
   const id = req.params.id;
-  const post = await AsientosClaseModel.findOne({ _id: id }).populate("Clase").populate("TipoAviones").exec();
+  const post = await AsientosClaseModel.findOne({ _id: id }).populate("clase").populate("tipoAviones").exec();
   res.json(post);
 };
 

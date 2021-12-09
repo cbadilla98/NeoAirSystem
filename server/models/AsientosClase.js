@@ -17,7 +17,7 @@ const AsientosClaseSchema = new Schema(
     clase: [
         {
           type: Schema.Types.ObjectId,
-          ref: "Clase",
+          ref: "Clases",
         },
     ],
     tipoAviones: [

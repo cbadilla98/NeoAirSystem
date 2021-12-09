@@ -79,6 +79,9 @@ const routes: Routes = [
       {
         path: 'asientosClase', component : AsientosClaseComponent
       },
+      {
+        path: 'asientosClase/:id', component : AsientosClaseComponent
+      },
 
     ],
   },
