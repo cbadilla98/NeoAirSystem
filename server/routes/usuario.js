@@ -5,7 +5,7 @@ const controller = require("../controllers/usuarioController.js");
 
 const auth = require("../middleware/auth");
 
-router.get("/",auth, controller.get);
+router.get("/", controller.get);
 
 router.get("/:id", controller.getById);
 

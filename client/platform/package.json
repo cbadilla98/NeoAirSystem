@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.10.2",
     "@syncfusion/ej2-angular-calendars": "^19.3.55",
     "@types/popper.js": "^1.11.0",
+    "@walmon/greenpay-sdk-frontend": "^0.2.1",
     "jquery": "^3.6.0",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.2.0",

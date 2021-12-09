@@ -37,32 +37,28 @@
 		<article class="col1">
 			<div class="pad_1">
 				<h2>Seleccione su vuelo: </h2>
-				<form id="form_1" action="" method="post">
+				<form (ngSubmit)="f.form.valid && submitForm()" name="form" #f="ngForm" novalidate>
 					
 					<div class="wrapper">
-						Salida de:
-						<div class="bg"><input type="text" class="input input1" value="Enter City or Airport Code" onBlur="if(this.value=='') this.value='Enter City or Airport Code'" onFocus="if(this.value =='Enter City or Airport Code' ) this.value=''"></div>
+						<label for="salida" class="form-label">Salida:</label>
+                            <input name="salida" type="text" class="form-control input input2" [(ngModel)]="form.salida" required #salida="ngModel" aria-describedby="emailHelp">
+                            <div class="alert alert-danger" role="alert" *ngIf="salida.errors && f.submitted">Debe ingresar un punto de salida</div>
 					</div>
+					<br/>
 					<div class="wrapper">
-						Llegada a:
-						<div class="bg"><input type="text" class="input input1" value="Enter City or Airport Code" onBlur="if(this.value=='') this.value='Enter City or Airport Code'" onFocus="if(this.value =='Enter City or Airport Code' ) this.value=''"></div>
+						<label for="destino" class="form-label">Destino:</label>
+                            <input name="destino" type="text" class="form-control input input2" [(ngModel)]="form.destino" required #destino="ngModel" aria-describedby="emailHelp">
+                            <div class="alert alert-danger" role="alert" *ngIf="destino.errors && f.submitted">Debe ingresar un destino</div>
 					</div>
+					<br/>
 					<div class="wrapper">
-						Fecha de salida:
-						<div class="wrapper">
-							<div class="bg left"><input type="text" class="input input2" value="mm/dd/yyyy " onBlur="if(this.value=='') this.value='mm/dd/yyyy '" onFocus="if(this.value =='mm/dd/yyyy ' ) this.value=''"></div>
-							<div class="bg right"><input type="text" class="input input2" value="12:00am" onBlur="if(this.value=='') this.value='12:00am'" onFocus="if(this.value =='12:00am' ) this.value=''"></div>
-						</div>
+						<label for="fechaSalida" class="form-label">Fecha de salida:</label>
+                            <input name="fechaSalida" type="date" class="form-control input input2" [(ngModel)]="form.fechaSalida" required #fechaSalida="ngModel" aria-describedby="emailHelp">
+                            <div class="alert alert-danger" role="alert" *ngIf="fechaSalida.errors && f.submitted">Debe ingresar una fecha</div>
 					</div>
+					<br/>
 					<div class="wrapper">
-						Fecha de regreso:
-						<div class="wrapper">
-							<div class="bg left"><input type="text" class="input input2" value="mm/dd/yyyy " onBlur="if(this.value=='') this.value='mm/dd/yyyy '" onFocus="if(this.value =='mm/dd/yyyy ' ) this.value=''"></div>
-							<div class="bg right"><input type="text" class="input input2" value="12:00am" onBlur="if(this.value=='') this.value='12:00am'" onFocus="if(this.value =='12:00am' ) this.value=''"></div>
-						</div>
-					</div>
-					<div class="wrapper"><br>
-						<a href="#" class="button2" onClick="document.getElementById('form_1').submit()">Verificar</a>
+						<button type="submit" class="btn btn-primary">¡A volar!</button>
 					</div>
 				</form>
 				<h2>¿Sabía que?</h2>

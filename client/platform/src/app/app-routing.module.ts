@@ -18,6 +18,7 @@ import { ClaseComponent } from './modulos/admin/clase/clase.component';
 import { TiqueteComponent } from './modulos/admin/tiquete/tiquete.component'
 import { TiqueteFormComponent } from './modulos/admin/tiquete-form/tiquete-form.component';
 import { AsientosClaseComponent } from './modulos/admin/asientos-clase/asientos-clase.component';
+import {TiqueteBusquedaComponent} from './modulos/user/tiquete-busqueda/tiquete-busqueda.component'
 const routes: Routes = [
   {
     //admin
@@ -92,6 +93,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'inicio', component: HomeComponent},
       { path: 'login', component: LoginComponent},
+      { path: 'inicio/busqueda', component: TiqueteBusquedaComponent},
     ],
   },
 ];

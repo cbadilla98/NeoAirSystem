@@ -123,9 +123,9 @@ export class RutasComponent implements OnInit {
 
           }
         });
-        // setTimeout(() => {
-        //   window.location.reload();
-        // },1000)
+        setTimeout(() => {
+          window.location.reload();
+        },1000)
       } else {
         this.formRutas.controls['duracion'].setValue(this.formRutas.value.duracion);
         this.rutasService
