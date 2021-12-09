@@ -22,7 +22,7 @@ const OfertasClaseSchema = new Schema(
     tiquetes: [
         {
           type: Schema.Types.ObjectId,
-          ref: "Tiquetes",
+          ref: "Tiquete",
         },
     ],
 },

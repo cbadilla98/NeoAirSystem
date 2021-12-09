@@ -2,13 +2,13 @@ const OfertasModel = require("../models/Ofertas");
 
 
 module.exports.get = async (req, res, next) => {
-    const posts = await OfertasModel.find().populate("Tiquetes").exec();
+    const posts = await OfertasModel.find().populate("tiquetes").exec();
     res.json(posts);
 };
 
 module.exports.getById = async (req, res, next) => {
   const id = req.params.id;
-  const post = await OfertasModel.findOne({ _id: id }).populate("Tiquetes").exec();
+  const post = await OfertasModel.findOne({ _id: id }).populate("tiquetes").exec();
   res.json(post);
 };
 
