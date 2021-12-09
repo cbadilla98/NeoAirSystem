@@ -206,8 +206,6 @@ export class HorariosComponent implements OnInit {
       });
       // this.ruta = data.rutas[0]._id
       this._idRuta = data.rutas[0]._id
-      this.formHorario.controls['fechaHoraSalida'].setValue(data.fechaHoraSalida);
-
       // this.formHorario.value.fechaHoraSalida
       $('#btnEditar').prop("hidden", false);
       $('#btnCancelar').prop("hidden", false);
