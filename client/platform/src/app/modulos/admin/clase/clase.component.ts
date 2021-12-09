@@ -64,7 +64,6 @@ export class ClaseComponent implements OnInit {
               title: 'Modificado Correctamente',
             })
             this.editar("");
-            console.log("1")
           });
       } else {
         this.clasesService.create(this.postForm.value).subscribe((data) => {
