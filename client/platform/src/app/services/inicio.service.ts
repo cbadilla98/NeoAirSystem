@@ -13,9 +13,9 @@ const httpOptions = {
 })
 export class InicioService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private https: HttpClient) { }
   getFiltered(salida: string, destino: string, fechaSalida:Date): Observable<any> {
-    return this.http.post(
+    return this.https.post(
       AUTH_API + 'busqueda',
       {
         salida,
